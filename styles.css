@@ -444,32 +444,26 @@ footer {
 .social-icon.whatsapp {
     background-color: #25D366;
 }
-/* --- Responsive (Mobile) --- */
+/* --- Responsive (Mobile & Tablets) --- */
+@media (max-width: 992px) {
+    /* Ajustes generales para tablets */
+    .section {
+        padding: 60px 0;
+    }
+}
+
 @media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden; /* Prevenir scroll horizontal accidental */
+    }
+
     .navbar .container {
         justify-content: space-between;
-        /* Space out logo and hamburger */
-    }
-
-    .logo {
-        position: static;
-        /* Reset absolute positioning */
-        transform: none;
-        background-color: transparent;
-        box-shadow: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .logo-img {
-        height: 60px;
-        /* Smaller logo for mobile */
     }
 
     .menu-toggle {
         display: block;
         z-index: 1002;
-        /* Ensure above everything */
     }
 
     .nav-menu {
@@ -479,10 +473,12 @@ footer {
         flex-direction: column;
         background: var(--white);
         width: 100%;
+        height: calc(100vh - 70px); /* Ocupar el resto de la pantalla */
         text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px 0;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 2px 10px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px 0;
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -490,26 +486,57 @@ footer {
     }
 
     .nav-menu li {
-        margin: 15px 0;
+        margin: 20px 0;
     }
 
-    .pricing-card.featured {
-        transform: scale(1);
+    .nav-menu li a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 10px;
     }
 
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-        padding: 0 15px;
+    /* Reducción proporcional de espacios */
+    .section {
+        padding: 50px 0;
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
+    /* Ajuste del Hero para móviles */
+    .hero {
+        min-height: 100svh; /* Se adapta a las barras dinámicas del navegador móvil */
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        padding: 0 15px;
+    }
+
+    .hero p {
+        font-size: 1.05rem;
+        padding: 0 20px;
+    }
+
+    /* Centrado y apilado del Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .footer-logo {
+        margin: 0 auto 15px auto;
+    }
+
+    /* Tarjetas de Precios */
+    .pricing-card.featured {
+        transform: scale(1); /* Desactivar crecimiento en móviles */
+    }
+
+    /* Iconos Sociales en pantalla más pequeña */
     .social-floating {
         bottom: 20px;
         right: 15px;
@@ -522,24 +549,34 @@ footer {
         font-size: 20px;
     }
 
-    /* Adjust grids for smaller screens */
+    /* Adaptación de Grids a 1 columna pura */
     .pricing-grid {
         grid-template-columns: 1fr;
-        /* Single column on mobile */
+        gap: 25px;
     }
 
     .features-grid,
     .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
 
 @media (max-width: 480px) {
     .logo-img {
-        height: 50px;
+        height: 55px; /* Reducción muy sutil en celulares pequeños */
+        width: 55px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
     }
 
-    .hero h1 {
-        font-size: 1.75rem;
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .price {
+        font-size: 2rem;
     }
 }
