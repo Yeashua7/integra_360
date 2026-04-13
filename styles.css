@@ -569,7 +569,7 @@ footer {
     }
 
     .hero-top-brand {
-        top: 18%; /* Ajuste para que se mantenga en el cielo en móvil */
+        top: 25%; /* Ajuste para verse más centrado en el cielo en móviles */
     }
 
     .hero-title-brand {
