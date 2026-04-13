@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetId === '#') return;
 
             const targetElement = document.querySelector(targetId);
+            if (!targetElement) return; // Validación para evitar error si no existe el ancla en la página
+
             const headerOffset = 0; // Altura del navbar (0 ya que no es fixed)
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
