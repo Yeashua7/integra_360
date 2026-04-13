@@ -104,14 +104,18 @@ ul {
     z-index: 1001;
     background-color: transparent;
     padding: 0;
-    gap: 12px;
 }
 
-.logo-text {
-    color: var(--accent-color);
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+.gold-metallic-text {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #D4AF37, #FFF2CD, #D4AF37, #AA771C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .logo-img {
@@ -220,6 +224,21 @@ ul {
     height: 100%;
     background: rgba(5, 16, 36, 0.75);
     /* Capa azul marino oscuro elegante */
+}
+
+.hero-top-brand {
+    position: absolute;
+    top: 22%; /* Flotando en el centro del cielo, arriba del techo, como en el mockup */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-title-brand {
+    font-size: 4.5rem !important;
+    letter-spacing: 5px !important;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 .hero-content {
@@ -549,6 +568,15 @@ footer {
         min-height: 100svh; /* Se adapta a las barras dinámicas del navegador móvil */
     }
 
+    .hero-top-brand {
+        top: 18%; /* Ajuste para que se mantenga en el cielo en móvil */
+    }
+
+    .hero-title-brand {
+        font-size: 2.8rem !important;
+        letter-spacing: 2px !important;
+    }
+
     .hero h1 {
         font-size: 2.2rem;
         padding: 0 15px;
@@ -608,8 +636,9 @@ footer {
         width: 55px;
     }
     
-    .logo-text {
-        font-size: 1.1rem;
+    .hero-title-brand {
+        font-size: 2.3rem !important;
+        letter-spacing: 2px !important;
     }
     
     .hero h1 {
