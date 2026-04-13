@@ -566,10 +566,13 @@ footer {
     /* Ajuste del Hero para móviles */
     .hero {
         min-height: 100svh; /* Se adapta a las barras dinámicas del navegador móvil */
+        flex-direction: column;
     }
 
     .hero-top-brand {
-        top: 25%; /* Ajuste para verse más centrado en el cielo en móviles */
+        position: relative;
+        top: auto; 
+        margin-bottom: 15px; /* Pegado al bloque de texto central ("body") */
     }
 
     .hero-title-brand {
