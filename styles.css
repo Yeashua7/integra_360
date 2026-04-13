@@ -471,6 +471,11 @@ footer {
 .social-icon.whatsapp {
     background-color: #25D366;
 }
+
+.social-icon.email {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
 /* --- Responsive (Mobile & Tablets) --- */
 @media (max-width: 992px) {
     /* Ajustes generales para tablets */
