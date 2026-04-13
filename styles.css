@@ -104,6 +104,14 @@ ul {
     z-index: 1001;
     background-color: transparent;
     padding: 0;
+    gap: 12px;
+}
+
+.logo-text {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .logo-img {
@@ -598,6 +606,10 @@ footer {
     .logo-img {
         height: 55px; /* Reducción muy sutil en celulares pequeños */
         width: 55px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
     }
     
     .hero h1 {
