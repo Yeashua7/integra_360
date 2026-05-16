@@ -431,6 +431,20 @@ ul {
     width: 100%;
 }
 
+.service-card .btn-app-plan,
+.service-card .btn-wa-plan {
+    white-space: nowrap;
+    padding: 9px 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0;
+}
+
+.service-card .btn-app-plan i,
+.service-card .btn-wa-plan i {
+    font-size: 0.75rem;
+    margin-right: 4px;
+}
+
 .service-card:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
