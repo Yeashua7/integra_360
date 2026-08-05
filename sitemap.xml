@@ -1,44 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Página principal -->
+  <!--
+    INTEGRA 360° — sitemap.xml
+    Sitio de una sola página (SPA).
+    Google indexa todo el contenido desde esta única URL.
+  -->
   <url>
     <loc>https://integra360corp.com/</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-  </url>
-
-  <!-- Sección Nosotros -->
-  <url>
-    <loc>https://integra360corp.com/#nosotros</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Sección Paquetes (conversión principal) -->
-  <url>
-    <loc>https://integra360corp.com/#paquetes</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Sección Servicios Adicionales -->
-  <url>
-    <loc>https://integra360corp.com/#servicios</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Sección Contacto -->
-  <url>
-    <loc>https://integra360corp.com/#contacto</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
 </urlset>
