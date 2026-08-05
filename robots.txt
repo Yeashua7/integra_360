@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://integra360corp.com/sitemap.xml
