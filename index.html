@@ -95,7 +95,12 @@
     }
     </script>
 
-    <link rel="icon" href="img/logo.jpeg" type="image/jpeg" />
+    <!-- Resource Hints & Preloads (Core Web Vitals Optimization) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preload" href="img/modern-hero.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="img/logo.webp" as="image" type="image/webp" />
+
+    <link rel="icon" href="img/logo.webp" type="image/webp" />
 
     <link rel="stylesheet" href="styles.css?v=4.0" />
 
@@ -109,7 +114,7 @@
     <nav class="navbar" aria-label="Navegación principal de INTEGRA 360°">
       <div class="container">
         <a href="#inicio" class="logo" aria-label="Ir al inicio - INTEGRA 360°">
-          <img src="img/logo.jpeg" alt="Logo INTEGRA 360° - Servicios Residenciales El Salvador" class="logo-img" width="60" height="60" />
+          <img src="img/logo.webp" alt="Logo INTEGRA 360° - Servicios Residenciales El Salvador" class="logo-img" width="60" height="60" fetchpriority="high" />
         </a>
         <div class="menu-toggle" id="mobile-menu">
           <span class="bar"></span>
@@ -1133,9 +1138,12 @@
           aria-label="Acceder a Mi Panel Integra 360°"
         >
           <img
-            src="img/logo.jpeg"
+            src="img/logo.webp"
             alt="Integra 360° App"
             class="social-app-img"
+            width="45"
+            height="45"
+            loading="lazy"
           />
         </a>
       </div>

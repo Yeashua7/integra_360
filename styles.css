@@ -212,8 +212,8 @@ ul {
 
 /* --- Hero Section --- */
 .hero {
-    background-image: url('img/modern-hero.png');
-    /* Nueva imagen de Mansión Twilight */
+    background-image: url('img/modern-hero.webp');
+    /* Nueva imagen de Mansión Twilight optimizada en WebP */
     background-size: cover;
     background-position: center;
     height: 100vh;
