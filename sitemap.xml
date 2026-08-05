@@ -4,10 +4,9 @@
   <!--
     INTEGRA 360° — sitemap.xml
     Sitio de una sola página (SPA).
-    Google indexa todo el contenido desde esta única URL.
   -->
   <url>
-    <loc>https://integra360corp.com/</loc>
+    <loc>https://www.integra360corp.com/</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>

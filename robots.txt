@@ -8,5 +8,5 @@ Allow: /
 Disallow: /.git/
 Disallow: /.vscode/
 
-# Sitemap en dominio propio
-Sitemap: https://integra360corp.com/sitemap.xml
+# Sitemap en dominio oficial
+Sitemap: https://www.integra360corp.com/sitemap.xml
