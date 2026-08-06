@@ -58,3 +58,4 @@ integra_360/
 ## 📄 Licencia
 
 © 2026 INTEGRA 360°. Todos los derechos reservados.
+
