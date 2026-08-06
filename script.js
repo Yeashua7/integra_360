@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const headerOffset = 0;
             const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
             window.scrollTo({
                 top: offsetPosition,
