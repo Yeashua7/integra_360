@@ -1,0 +1,8 @@
+# Editor & IDE directories
+.vscode/
+.idea/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
