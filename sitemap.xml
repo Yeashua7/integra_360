@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!--
     INTEGRA 360° — sitemap.xml
-    Sitio de una sola página (SPA).
+    Gestión Integral de Servicios Residenciales en El Salvador
   -->
   <url>
     <loc>https://www.integra360corp.com/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.integra360corp.com/img/logo.webp</image:loc>
+      <image:title>INTEGRA 360° Logotipo Oficial</image:title>
+      <image:caption>Logotipo oficial de INTEGRA 360° Servicios Residenciales</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.integra360corp.com/img/modern-hero.webp</image:loc>
+      <image:title>INTEGRA 360° Servicios Residenciales El Salvador</image:title>
+      <image:caption>Servicios residenciales integrales en El Salvador</image:caption>
+    </image:image>
   </url>
 
 </urlset>

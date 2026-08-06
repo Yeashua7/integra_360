@@ -1,19 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Funcionalidad del Menú Hamburguesa
+    // Funcionalidad del Menú Hamburguesa con accesibilidad ARIA
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
 
-    mobileMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        mobileMenu.classList.toggle('is-active'); // Opcional para animación del icono
-    });
+    if (mobileMenu && navMenu) {
+        mobileMenu.addEventListener('click', () => {
+            const isExpanded = navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('is-active');
+            mobileMenu.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        });
+
+        // Soporte para teclado (Enter o Espacio)
+        mobileMenu.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenu.click();
+            }
+        });
+    }
 
     // Cerrar menú al hacer clic en un enlace
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
+            if (navMenu && mobileMenu) {
+                navMenu.classList.remove('active');
+                mobileMenu.classList.remove('is-active');
+                mobileMenu.setAttribute('aria-expanded', 'false');
+            }
         });
     });
 
@@ -26,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetId === '#') return;
 
             const targetElement = document.querySelector(targetId);
-            if (!targetElement) return; // Validación para evitar error si no existe el ancla en la página
+            if (!targetElement) return;
 
-            const headerOffset = 0; // Altura del navbar (0 ya que no es fixed)
+            const headerOffset = 0;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 

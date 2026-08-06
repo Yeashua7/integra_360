@@ -1,12 +1,15 @@
 # robots.txt — INTEGRA 360°
-# Permite que todos los motores de búsqueda rastreen el sitio
+# Permitir a todos los motores de búsqueda rastrear e indexar el sitio web
 
 User-agent: *
 Allow: /
+Allow: /img/
+Allow: /*.css
+Allow: /*.js
 
-# Bloquear carpetas internas
+# Bloquear directorios internos de desarrollo
 Disallow: /.git/
 Disallow: /.vscode/
 
-# Sitemap en dominio oficial
+# Ubicación del Sitemap XML oficial
 Sitemap: https://www.integra360corp.com/sitemap.xml
