@@ -51,4 +51,20 @@
 
   </url>
 
+  <!-- Términos y Condiciones -->
+  <url>
+    <loc>https://www.integra360corp.com/terminos.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Política de Privacidad -->
+  <url>
+    <loc>https://www.integra360corp.com/privacidad.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
