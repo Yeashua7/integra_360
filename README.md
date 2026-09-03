@@ -1,61 +1,171 @@
-# INTEGRA 360° | Soluciones Integrales
+# INTEGRA 360° — Sitio Web Oficial
 
-Bienvenido al repositorio del sitio web oficial de **INTEGRA 360°**. Este proyecto presenta nuestra plataforma digital diseñada para ofrecer soluciones integrales de limpieza y mantenimiento para el hogar y vehículos, simplificando la vida de nuestros clientes.
+> **"Todo lo que necesitas. Una sola gestión."**
+
+Repositorio del sitio web oficial de **INTEGRA 360°** — empresa de gestión integral de servicios para hogares, empresas y administraciones en El Salvador.
+
+---
 
 ## 📋 Descripción
 
-**INTEGRA 360°** es una empresa comprometida con devolver el tiempo que mereces disfrutar. Nuestra web permite a los usuarios explorar nuestros servicios, conocer nuestros paquetes mensuales y contactarnos fácilmente. El sitio está construido con un enfoque en la experiencia de usuario, claridad en la información y diseño moderno.
+**INTEGRA 360°** es el punto único de gestión y solución para cualquier necesidad de servicio. No somos únicamente una empresa de limpieza — conectamos hogares, empresas y administraciones con soluciones confiables, personalizadas y eficientes.
 
-## ✨ Características Principales
+El cliente tiene **una necesidad** → INTEGRA 360° → **una solución.**
 
-*   **Diseño Responsivo**: Experiencia de usuario optimizada para dispositivos móviles, tablets y escritorio.
-*   **Navegación Intuitiva**: Menú de navegación claro con funcionalidad "smooth scroll" para un desplazamiento suave entre secciones.
-*   **Sección de Paquetes**: Presentación detallada de nuestros planes (Esencial, Confort e Integral) con sus beneficios y precios.
-*   **Catálogo de Servicios**: Visualización de servicios adicionales como jardinería, pintura, trámites legales, tapicería, etc.
-*   **Integración Social**: Botones flotantes interactivos con acceso directo a WhatsApp, Facebook, Instagram y TikTok.
-*   **Información de Contacto**: Acceso rápido a canales de comunicación directa.
+---
 
-## 🛠️ Tecnologías Utilizadas
+## 🌐 Sitio en producción
 
-Este proyecto ha sido desarrollado utilizando tecnologías web estándar para asegurar compatibilidad y rendimiento:
+**[www.integra360corp.com](https://www.integra360corp.com)**
 
-*   **HTML5**: Estructura semántica del contenido.
-*   **CSS3**: Estilos personalizados, diseño flexbox/grid y animaciones.
-*   **JavaScript (Vanilla)**: Lógica para el menú móvil, navegación y efectos interactivos.
-*   **Font Awesome**: Iconografía vectorial para una interfaz visual limpia.
+Desplegado en **GitHub Pages** con dominio personalizado (CNAME).
 
-## 🚀 Instalación y Uso
+---
 
-Para visualizar o trabajar con este proyecto localmente:
+## ✨ Características del sitio
 
-1.  **Clonar el repositorio**:
-    ```bash
-    git clone https://github.com/tu-usuario/integra-360.git
-    ```
-    *(O descarga los archivos directamente como ZIP)*
+- **Hero fullscreen** con composición visual de los 3 ecosistemas: Hogares, Empresas, Administraciones
+- **Diagrama interactivo** TÚ → INTEGRA 360° → SOLUCIONES
+- **3 tarjetas de soluciones** con fotografías IA únicas por ecosistema
+- **Sección "¿Cómo funciona?"** — 5 pasos con animaciones on-scroll
+- **Sección "¿Por qué elegirnos?"** — 5 beneficios en grid responsive
+- **CTA estratégico** de necesidad personalizada
+- **Navbar sticky** con efecto transparente → sólido al hacer scroll
+- **Menú hamburguesa** totalmente accesible (ARIA, teclado, Escape)
+- **Smooth scrolling** con offset correcto para navbar fija
+- **Reveal animations** con Intersection Observer (no JavaScript pesado)
+- **Parallax** sutil en el Hero
+- **Footer completo** — 5 columnas: marca, soluciones, empresa, legal, contacto
+- **FAB de redes sociales** — Facebook, Instagram, TikTok, WhatsApp, Email
+- **SEO completo** — JSON-LD Schema.org, Open Graph, Twitter Cards, sitemap
+- **Google Analytics 4** correctamente implementado (async, sin bloqueo de render)
+- **PWA ready** — site.webmanifest configurado
 
-2.  **Abrir el proyecto**:
-    Navega a la carpeta del proyecto y abre el archivo `index.html` en tu navegador web preferido (Chrome, Firefox, Edge, Safari).
+---
 
-    O simplemente haz doble clic en `index.html`.
+## 🛠️ Stack Tecnológico
+
+| Tecnología | Uso |
+|---|---|
+| **HTML5 semántico** | Estructura del sitio |
+| **CSS3 Vanilla** | Estilos, variables, animaciones, responsive |
+| **JavaScript Vanilla (ES6+)** | Navbar scroll, menú móvil, Intersection Observer, parallax |
+| **Google Fonts — Inter** | Tipografía corporativa |
+| **Font Awesome 6.0.0** | Iconografía (CDN) |
+| **Google Analytics 4** | Métricas y analítica |
+| **GitHub Pages** | Hosting y deploy |
+
+---
+
+## 🎨 Sistema de Diseño
+
+| Token | Valor | Uso |
+|---|---|---|
+| `--primary` | `#051024` | Azul marino profundo — base |
+| `--accent` | `#D4AF37` | Dorado premium — accentos y CTAs |
+| `--accent-hover` | `#b8952c` | Dorado hover |
+| `--white` | `#ffffff` | Fondos y texto claro |
+| **Fuente** | Inter (Google Fonts) | Toda la tipografía |
+
+---
 
 ## 📂 Estructura del Proyecto
 
-```text
-integra_360/
-├── img/                # Recursos gráficos (logos, imagenes)
-├── index.html          # Archivo principal HTML
-├── styles.css          # Hoja de estilos principal
-├── script.js           # Scripts de funcionalidad
-└── README.md           # Documentación del proyecto
+```
+integra_360-1/
+│
+├── index.html                      # Página principal (única)
+├── styles.css                      # Sistema de diseño completo
+├── script.js                       # Lógica: navbar, menú, animaciones
+│
+├── img/
+│   ├── logo.webp                   # Logo oficial INTEGRA 360°
+│   ├── hero-composite.jpg          # Hero: composición 3 ecosistemas (IA)
+│   ├── solution-hogares.jpg        # Card Hogares (IA)
+│   ├── solution-empresas.jpg       # Card Empresas (IA)
+│   └── solution-administraciones.jpg # Card Administraciones (IA)
+│
+├── favicon-16.png                  # Favicon 16×16
+├── favicon-32.png                  # Favicon 32×32
+├── favicon-48.png                  # Favicon 48×48 (principal)
+├── favicon-192.png                 # Favicon PWA
+├── favicon-512.png                 # Favicon PWA splash
+├── favicon.ico                     # Favicon legacy
+├── apple-touch-icon.png            # iOS home screen icon
+│
+├── site.webmanifest                # PWA manifest
+├── sitemap.xml                     # Sitemap para Google Search Console
+├── robots.txt                      # Directivas de crawl para bots
+├── CNAME                           # Dominio personalizado GitHub Pages
+├── .nojekyll                       # Desactiva Jekyll en GitHub Pages
+├── .gitignore                      # Exclusiones de Git
+└── README.md                       # Este archivo
 ```
 
-## ✒️ Autor
+---
 
-**Equipo INTEGRA 360°**
-*   Desarrollo y Diseño Web
+## 📐 Secciones del Sitio
+
+| # | ID | Sección |
+|---|---|---|
+| 1 | `#inicio` | Hero — "Todo lo que necesitas. Una sola gestión." |
+| 2 | `#nosotros` | ¿Qué es INTEGRA 360°? — Diagrama ecosistema |
+| 3 | `#soluciones` | Soluciones para cada necesidad — 3 tarjetas |
+| 4 | `#necesidad-personalizada` | ¿Tienes una necesidad diferente? |
+| 5 | `#como-funciona` | ¿Cómo funciona? — 5 pasos |
+| 6 | `#por-que` | ¿Por qué elegir INTEGRA 360°? — 5 beneficios |
+| 7 | `#contacto` | CTA Final — Solicitar / Llamar |
+| 8 | `#footer` | Footer — 5 columnas |
+
+---
+
+## 🚀 Desarrollo Local
+
+```bash
+# Opción 1 — Python (recomendado)
+python -m http.server 8080
+
+# Opción 2 — Node.js
+npx serve .
+
+# Luego abrir en el navegador:
+# http://localhost:8080
+```
+
+---
+
+## 📊 Google Analytics 4
+
+- **ID de medición:** `G-BEDM810LPW`
+- Implementado con `async` — no bloquea render ni indexación de Google
+- `anonymize_ip: true` — cumple buenas prácticas de privacidad
+- El tag está correctamente ubicado **después** del `<meta charset>` y `<meta viewport>`
+
+> ⚠️ No mover el script de GA4 fuera del `<head>`. Google Tag Manager requiere que esté en el `<head>` para medir correctamente los page views.
+
+---
+
+## 📞 Contacto
+
+| Canal | Datos |
+|---|---|
+| **WhatsApp** | [+503 6994-0103](https://wa.me/50369940103) |
+| **Teléfono** | [+503 6994-0103](tel:+50369940103) |
+| **Email** | [hello@integra360corp.com](mailto:hello@integra360corp.com) |
+| **Facebook** | [INTEGRA 360°](https://www.facebook.com/profile.php?id=61587207488110) |
+| **Instagram** | [@integra360_sv](https://www.instagram.com/integra360_sv/) |
+| **TikTok** | [@integra360sv](https://www.tiktok.com/@integra360sv) |
+
+---
+
+## ✒️ Créditos
+
+- **Empresa:** INTEGRA 360°
+- **Desarrollo y Diseño:** JK GROUP
+- **Fotografías hero/cards:** Generadas con IA (Gemini)
+
+---
 
 ## 📄 Licencia
 
 © 2026 INTEGRA 360°. Todos los derechos reservados.
-

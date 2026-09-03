@@ -2,31 +2,34 @@
 <html lang="es-SV" itemscope itemtype="https://schema.org/WebPage">
 <head>
 
-    <!-- Google Analytics 4 -->
+    <!-- Charset y viewport PRIMERO — requerido por Google para indexación correcta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#051024" />
+
+    <!-- Google Analytics 4 — async: no bloquea render ni indexación -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BEDM810LPW"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-BEDM810LPW');
+      gtag('config', 'G-BEDM810LPW', {
+        'anonymize_ip': true,
+        'cookie_flags': 'SameSite=None;Secure'
+      });
     </script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#051024" />
-
     <!-- SEO Meta Tags -->
-    <title>INTEGRA 360° | Servicios Residenciales en El Salvador</title>
+    <title>INTEGRA 360° | Gestión Integral de Servicios — Hogares, Empresas y Administraciones</title>
 
     <meta
       name="description"
-      content="INTEGRA 360° ofrece gestión integral de servicios residenciales en El Salvador: limpieza, organización, lavado de vehículos, jardinería y mantenimiento."
+      content="INTEGRA 360° es tu empresa de gestión integral de servicios en El Salvador. Soluciones para hogares, empresas y administraciones. Mantenimiento, limpieza, áreas verdes, vehículos, mudanzas y más. Todo lo que necesitas. Una sola gestión."
     />
 
     <meta
       name="keywords"
-      content="Integra 360, servicios residenciales, limpieza residencial, organización del hogar, lavado de vehículos, mantenimiento del hogar, jardinería, pet care, lavandería, El Salvador"
+      content="INTEGRA 360, gestión integral de servicios, servicios para hogares, servicios para empresas, servicios para condominios, mantenimiento, limpieza, áreas verdes, soluciones empresariales, gestión de servicios, El Salvador"
     />
 
     <meta name="author" content="INTEGRA 360°" />
@@ -40,7 +43,6 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Favicon Configuration -->
-    <!-- favicon-48.png es el favicon principal (favicon.ico excluido: devuelve 404 en el servidor publicado) -->
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
@@ -48,16 +50,10 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Open Graph (Facebook / WhatsApp / LinkedIn) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="INTEGRA 360° | Gestión Integral de Servicios Residenciales"
-    />
-    <meta
-      property="og:description"
-      content="Tu hogar. Tu tiempo. Todo resuelto. Paquetes de limpieza, organización, vehículos y mantenimiento en El Salvador."
-    />
+    <meta property="og:title" content="INTEGRA 360° | Todo lo que necesitas. Una sola gestión." />
+    <meta property="og:description" content="Gestión integral de servicios para hogares, empresas y administraciones en El Salvador. Una necesidad. Una solución. Todo integrado." />
     <meta property="og:url" content="https://www.integra360corp.com/" />
     <meta property="og:image" content="https://www.integra360corp.com/img/logo.webp" />
     <meta property="og:image:secure_url" content="https://www.integra360corp.com/img/logo.webp" />
@@ -70,12 +66,12 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="INTEGRA 360° | Servicios Residenciales El Salvador" />
-    <meta name="twitter:description" content="Gestión integral de servicios residenciales en El Salvador. Limpieza, organización, mantenimiento y más desde una sola app." />
+    <meta name="twitter:title" content="INTEGRA 360° | Gestión Integral de Servicios El Salvador" />
+    <meta name="twitter:description" content="Todo lo que necesitas. Una sola gestión. Servicios para hogares, empresas y administraciones en El Salvador." />
     <meta name="twitter:image" content="https://www.integra360corp.com/img/logo.webp" />
     <meta name="twitter:image:alt" content="Logotipo Oficial INTEGRA 360°" />
 
-    <!-- Datos Estructurados JSON-LD (Schema.org - Organization, LocalBusiness y WebSite) -->
+    <!-- Datos Estructurados JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -95,11 +91,11 @@
             "width": "1254",
             "height": "1254"
           },
-          "image": {
-            "@id": "https://www.integra360corp.com/#logo"
-          },
+          "image": { "@id": "https://www.integra360corp.com/#logo" },
           "email": "hello@integra360corp.com",
           "telephone": "+50369940103",
+          "description": "Empresa de gestión integral de servicios para hogares, empresas y administraciones en El Salvador. Coordinamos, supervisamos y damos seguimiento para garantizar resultados de calidad.",
+          "areaServed": { "@type": "Country", "name": "El Salvador" },
           "sameAs": [
             "https://www.facebook.com/profile.php?id=61587207488110",
             "https://www.instagram.com/integra360_sv/",
@@ -107,1271 +103,725 @@
           ]
         },
         {
-          "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+          "@type": ["LocalBusiness", "ProfessionalService"],
           "@id": "https://www.integra360corp.com/#localbusiness",
           "name": "INTEGRA 360°",
-          "description": "Empresa de gestión integral de servicios residenciales en El Salvador. Ofrecemos paquetes mensuales de limpieza residencial, organización del hogar, lavado de vehículos, mantenimiento, jardinería, pet care, laundry in house, event planning y carwash móvil.",
+          "description": "Gestión integral de servicios para hogares, empresas y administraciones en El Salvador. Mantenimiento, limpieza, áreas verdes, vehículos, mudanzas y servicios especializados.",
           "url": "https://www.integra360corp.com/",
           "telephone": "+50369940103",
           "email": "hello@integra360corp.com",
           "priceRange": "$$",
-          "parentOrganization": {
-            "@id": "https://www.integra360corp.com/#organization"
-          },
-          "logo": {
-            "@id": "https://www.integra360corp.com/#logo"
-          },
-          "image": {
-            "@id": "https://www.integra360corp.com/#logo"
-          },
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "SV",
             "addressRegion": "San Salvador",
             "addressLocality": "San Salvador"
           },
-          "areaServed": {
-            "@type": "Country",
-            "name": "El Salvador"
-          },
+          "areaServed": { "@type": "Country", "name": "El Salvador" },
           "sameAs": [
             "https://www.facebook.com/profile.php?id=61587207488110",
             "https://www.instagram.com/integra360_sv/",
             "https://www.tiktok.com/@integra360sv"
-          ],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Servicios Residenciales Integra 360°",
-            "itemListElement": [
-              {
-                "@type": "OfferCatalog",
-                "name": "Paquetes Mensuales",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Paquete Esencial",
-                      "description": "Limpieza residencial general (2 veces por mes) y organización de espacios clave"
-                    },
-                    "price": "75.00",
-                    "priceCurrency": "USD"
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Paquete Confort",
-                      "description": "Limpieza general, organización y lavado básico de vehículo (1 vez por mes)"
-                    },
-                    "price": "115.00",
-                    "priceCurrency": "USD"
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Paquete Integral Premium",
-                      "description": "Limpieza profunda (4 veces por mes), organización y lavado de vehículo (2 veces por mes)"
-                    },
-                    "price": "150.00",
-                    "priceCurrency": "USD"
-                  }
-                ]
-              },
-              {
-                "@type": "OfferCatalog",
-                "name": "Servicios Adicionales",
-                "itemListElement": [
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cuidado de jardín"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Laundry in house"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mantenimiento del hogar"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pet care"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Event Planner"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carwash Móvil"}}
-                ]
-              }
-            ]
-          }
+          ]
         },
         {
           "@type": "WebSite",
           "@id": "https://www.integra360corp.com/#website",
           "url": "https://www.integra360corp.com/",
           "name": "INTEGRA 360°",
-          "description": "Gestión Integral de Servicios Residenciales en El Salvador",
-          "publisher": {
-            "@id": "https://www.integra360corp.com/#organization"
-          },
+          "description": "Gestión Integral de Servicios para Hogares, Empresas y Administraciones en El Salvador",
+          "publisher": { "@id": "https://www.integra360corp.com/#organization" },
           "inLanguage": "es-SV"
         }
       ]
     }
     </script>
 
-    <!-- Resource Hints & Preloads (Core Web Vitals Optimization) -->
+    <!-- Resource Hints & Preloads -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-    <link rel="preload" href="img/modern-hero.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="img/hero-composite.jpg" as="image" fetchpriority="high" />
     <link rel="preload" href="img/logo.webp" as="image" type="image/webp" />
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=4.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-  </head>
+    <!-- Google Fonts — Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <body>
-    <nav class="navbar" aria-label="Navegación principal de INTEGRA 360°">
-      <div class="container">
-        <a href="#inicio" class="logo" aria-label="Ir al inicio - INTEGRA 360°">
-          <img src="img/logo.webp" alt="Logo INTEGRA 360° - Servicios Residenciales El Salvador" class="logo-img" width="60" height="60" fetchpriority="high" decoding="async" />
-        </a>
-        <div class="menu-toggle" id="mobile-menu" role="button" tabindex="0" aria-label="Abrir menú de navegación" aria-expanded="false">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=5.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+</head>
+<body>
+
+    <!-- ================================================================
+         NAVBAR
+    ================================================================ -->
+    <nav class="navbar" id="navbar" aria-label="Navegación principal de INTEGRA 360°">
+        <div class="container nav-container">
+            <a href="#inicio" class="logo" aria-label="Ir al inicio — INTEGRA 360°">
+                <img src="img/logo.webp" alt="Logo INTEGRA 360°" class="logo-img" width="52" height="52" fetchpriority="high" decoding="async" />
+                <span class="logo-text gold-metallic-text">INTEGRA 360°</span>
+            </a>
+
+            <div class="menu-toggle" id="mobile-menu" role="button" tabindex="0" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-menu" role="list">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#soluciones" class="nav-link">Soluciones</a></li>
+                <li><a href="#como-funciona" class="nav-link">Cómo funciona</a></li>
+                <li><a href="#nosotros" class="nav-link">Para quién</a></li>
+                <li><a href="#por-que" class="nav-link">Nosotros</a></li>
+                <li>
+                    <a
+                        href="https://wa.me/50369940103?text=Hola,%20me%20gustaría%20solicitar%20una%20solución%20con%20INTEGRA%20360°."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="nav-link btn-nav"
+                        id="nav-cta"
+                        aria-label="Solicitar solución por WhatsApp"
+                    >Solicitar solución</a>
+                </li>
+            </ul>
         </div>
-        <ul class="nav-menu">
-          <li><a href="#inicio" class="nav-link">Inicio</a></li>
-          <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-          <li><a href="#paquetes" class="nav-link">Paquetes</a></li>
-          <li><a href="#servicios" class="nav-link">Servicios Extra</a></li>
-          <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-          <li>
-            <a
-              href="https://integra360-preview.preview.emergentagent.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="nav-link btn-nav-panel"
-              aria-label="Acceder al panel de usuario de INTEGRA 360°"
-              ><i class="fas fa-th-large" style="margin-right: 6px" aria-hidden="true"></i>Mi
-              Panel</a
-            >
-          </li>
-          <li><a href="#contacto" class="nav-link btn-nav">Contáctanos</a></li>
-        </ul>
-      </div>
     </nav>
 
-    <header id="inicio" class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-top-brand">
-        <h2 class="gold-metallic-text hero-title-brand">INTEGRA 360&deg;</h2>
-      </div>
-      <div class="container hero-content">
-        <h1 style="color: var(--accent-color)">
-          Tu hogar. Tu tiempo. Todo resuelto.
-        </h1>
-        <p style="font-size: 1.25rem; font-weight: 500; margin-top: 10px">
-          No es limpieza. Es calidad de vida con un solo click.
-        </p>
-        <div class="hero-cta-group">
-          <a
-            href="#paquetes"
-            class="btn btn-primary"
-            style="padding: 15px 35px; font-size: 1.1rem"
-            >Ver Paquetes</a
-          >
-          <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-          <a
-            href="https://integra360-preview.preview.emergentagent.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-panel-hero"
-            aria-label="Acceder al panel de gestión de Integra 360°"
-            ><i class="fas fa-rocket" style="margin-right: 8px" aria-hidden="true"></i>Acceder a Mi Panel</a
-          >
+    <!-- ================================================================
+         HERO
+    ================================================================ -->
+    <header id="inicio" class="hero" aria-label="Sección principal de INTEGRA 360°">
+        <div class="hero-overlay"></div>
+        <div class="hero-gradient-left"></div>
+        <div class="hero-gradient-right"></div>
+
+        <div class="container hero-content">
+            <div class="hero-eyebrow">
+                <span class="eyebrow-badge">
+                    <i class="fas fa-circle-dot" aria-hidden="true"></i>
+                    Gestión Integral de Servicios
+                </span>
+            </div>
+
+            <h1 class="hero-title">
+                Todo lo que necesitas.<br>
+                <span class="gold-metallic-text">Una sola gestión.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Conectamos hogares, empresas y administraciones con soluciones confiables,<br class="break-desktop">
+                personalizadas y eficientes. Nos encargamos de todo para que tú no tengas que hacerlo.
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="#soluciones" class="btn btn-primary btn-hero-primary" id="hero-cta-explorar">
+                    <i class="fas fa-compass" aria-hidden="true"></i>
+                    Explorar soluciones
+                </a>
+                <a
+                    href="https://wa.me/50369940103?text=Hola,%20me%20gustaría%20solicitar%20una%20solución%20con%20INTEGRA%20360°."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-hero-secondary"
+                    id="hero-cta-solicitar"
+                    aria-label="Solicitar una solución por WhatsApp"
+                >
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    Solicitar una solución
+                </a>
+            </div>
+
+            <div class="hero-ecosystem-badges" aria-label="Ecosistemas que atendemos">
+                <span class="ecosystem-badge">
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                    Hogares
+                </span>
+                <span class="ecosystem-divider" aria-hidden="true">·</span>
+                <span class="ecosystem-badge">
+                    <i class="fas fa-building" aria-hidden="true"></i>
+                    Empresas
+                </span>
+                <span class="ecosystem-divider" aria-hidden="true">·</span>
+                <span class="ecosystem-badge">
+                    <i class="fas fa-city" aria-hidden="true"></i>
+                    Administraciones
+                </span>
+            </div>
         </div>
-      </div>
+
+        <a href="#nosotros" class="hero-scroll-indicator" aria-label="Ir a siguiente sección">
+            <span class="scroll-line"></span>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </a>
     </header>
 
-    <section id="nosotros" class="section">
-      <div class="container text-center">
-        <h2 class="section-title">
-          Más que un servicio,
-          <span style="color: var(--accent-color)">un cambio de vida.</span>
-        </h2>
-        <p class="section-subtitle">
-          Integra 360 te da tiempo, tranquilidad y control.
-        </p>
-        <div class="about-content">
-          <p
-            style="
-              margin-bottom: 40px;
-              font-weight: 500;
-              max-width: 800px;
-              margin-left: auto;
-              margin-right: auto;
-            "
-          >
-            Somos un ecosistema de
-            <strong style="color: var(--primary-color)"
-              >soluciones integrales</strong
-            >, creada para simplificar tu vida y permitirte disfrutar de tu
-            hogar con toda tranquilidad en un solo click.
-          </p>
-          <div class="features-grid">
-            <div
-              class="feature-item"
-              style="
-                background-color: var(--primary-color);
-                color: var(--white);
-                border: 2px solid var(--accent-color);
-                border-radius: 12px;
-                padding: 25px 15px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-stopwatch"
-                style="
-                  color: var(--accent-color);
-                  font-size: 2.2rem;
-                  margin-bottom: 15px;
-                "
-                aria-hidden="true"
-              ></i>
-              <h3
-                style="
-                  color: var(--accent-color);
-                  font-size: 1.1rem;
-                  margin-bottom: 10px;
-                "
-              >
-                Ahorro de tiempo
-              </h3>
-              <p style="font-size: 0.9rem; opacity: 0.9">
-                Recuperas horas para lo que realmente importa.
-              </p>
+    <!-- ================================================================
+         ¿QUÉ ES INTEGRA 360°?
+    ================================================================ -->
+    <section id="nosotros" class="section section-que-es" aria-labelledby="que-es-title">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Nuestra esencia</span>
+                <h2 class="section-title" id="que-es-title">¿Qué es INTEGRA 360°?</h2>
+                <p class="section-subtitle">Un ecosistema que conecta necesidades con soluciones.</p>
             </div>
-            <div
-              class="feature-item"
-              style="
-                background-color: var(--primary-color);
-                color: var(--white);
-                border: 2px solid var(--accent-color);
-                border-radius: 12px;
-                padding: 25px 15px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-brain"
-                style="
-                  color: var(--accent-color);
-                  font-size: 2.2rem;
-                  margin-bottom: 15px;
-                "
-                aria-hidden="true"
-              ></i>
-              <h3
-                style="
-                  color: var(--accent-color);
-                  font-size: 1.1rem;
-                  margin-bottom: 10px;
-                "
-              >
-                Menos estrés
-              </h3>
-              <p style="font-size: 0.9rem; opacity: 0.9">
-                Delegas tareas y liberas tu mente de la carga constante.
-              </p>
+
+            <p class="que-es-description text-center">
+                Somos una empresa de gestión integral de servicios para ecosistemas residenciales y corporativos.
+                Coordinamos, supervisamos y damos seguimiento para garantizar resultados de calidad.
+                <strong>Tú tienes una necesidad. Nosotros encontramos la solución.</strong>
+            </p>
+
+            <!-- Diagrama visual -->
+            <div class="ecosystem-diagram" aria-label="Diagrama del ecosistema INTEGRA 360°">
+
+                <div class="diagram-column diagram-column--left">
+                    <div class="diagram-node diagram-node--client">
+                        <div class="diagram-node__icon">
+                            <i class="fas fa-user-circle" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="diagram-node__title">TÚ</h3>
+                        <ul class="diagram-node__list" aria-label="Tipos de cliente">
+                            <li><i class="fas fa-home" aria-hidden="true"></i> Hogares</li>
+                            <li><i class="fas fa-building" aria-hidden="true"></i> Empresas</li>
+                            <li><i class="fas fa-city" aria-hidden="true"></i> Administraciones</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="diagram-column diagram-column--center">
+                    <div class="diagram-arrow diagram-arrow--in" aria-hidden="true">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="diagram-node diagram-node--brand">
+                        <div class="diagram-brand-logo">
+                            <img src="img/logo.webp" alt="INTEGRA 360° — Gestión integral" width="70" height="70" loading="lazy" decoding="async" />
+                        </div>
+                        <h3 class="diagram-node__title gold-metallic-text">INTEGRA 360°</h3>
+                        <p class="diagram-node__desc">Gestión integral de servicios</p>
+                    </div>
+                    <div class="diagram-arrow diagram-arrow--out" aria-hidden="true">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="diagram-column diagram-column--right">
+                    <div class="diagram-node diagram-node--solutions">
+                        <div class="diagram-node__icon">
+                            <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="diagram-node__title">SOLUCIONES</h3>
+                        <ul class="diagram-node__list" aria-label="Tipos de soluciones">
+                            <li><i class="fas fa-tools" aria-hidden="true"></i> Mantenimiento</li>
+                            <li><i class="fas fa-broom" aria-hidden="true"></i> Limpieza</li>
+                            <li><i class="fas fa-leaf" aria-hidden="true"></i> Áreas verdes</li>
+                            <li><i class="fas fa-car" aria-hidden="true"></i> Vehículos</li>
+                            <li><i class="fas fa-box" aria-hidden="true"></i> Mudanzas</li>
+                            <li><i class="fas fa-plus-circle" aria-hidden="true"></i> Y mucho más</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-            <div
-              class="feature-item"
-              style="
-                background-color: var(--primary-color);
-                color: var(--white);
-                border: 2px solid var(--accent-color);
-                border-radius: 12px;
-                padding: 25px 15px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-puzzle-piece"
-                style="
-                  color: var(--accent-color);
-                  font-size: 2.2rem;
-                  margin-bottom: 15px;
-                "
-                aria-hidden="true"
-              ></i>
-              <h3
-                style="
-                  color: var(--accent-color);
-                  font-size: 1.1rem;
-                  margin-bottom: 10px;
-                "
-              >
-                Solución integral
-              </h3>
-              <p style="font-size: 0.9rem; opacity: 0.9">
-                Todo lo que tu hogar necesita, en un solo lugar.
-              </p>
-            </div>
-            <div
-              class="feature-item"
-              style="
-                background-color: var(--primary-color);
-                color: var(--white);
-                border: 2px solid var(--accent-color);
-                border-radius: 12px;
-                padding: 25px 15px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-mobile-alt"
-                style="
-                  color: var(--accent-color);
-                  font-size: 2.2rem;
-                  margin-bottom: 15px;
-                "
-                aria-hidden="true"
-              ></i>
-              <h3
-                style="
-                  color: var(--accent-color);
-                  font-size: 1.1rem;
-                  margin-bottom: 10px;
-                "
-              >
-                Fácil y rápido
-              </h3>
-              <p style="font-size: 0.9rem; opacity: 0.9">
-                Un solo clic y nosotros nos encargamos del resto.
-              </p>
-            </div>
-            <div
-              class="feature-item"
-              style="
-                background-color: var(--primary-color);
-                color: var(--white);
-                border: 2px solid var(--accent-color);
-                border-radius: 12px;
-                padding: 25px 15px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-shield-alt"
-                style="
-                  color: var(--accent-color);
-                  font-size: 2.2rem;
-                  margin-bottom: 15px;
-                "
-                aria-hidden="true"
-              ></i>
-              <h3
-                style="
-                  color: var(--accent-color);
-                  font-size: 1.1rem;
-                  margin-bottom: 10px;
-                "
-              >
-                Confianza total
-              </h3>
-              <p style="font-size: 0.9rem; opacity: 0.9">
-                Personal capacitado y procesos súper profesionales.
-              </p>
-            </div>
-            <div
-              class="feature-item"
-              style="
-                background-color: var(--primary-color);
-                color: var(--white);
-                border: 2px solid var(--accent-color);
-                border-radius: 12px;
-                padding: 25px 15px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-microchip"
-                style="
-                  color: var(--accent-color);
-                  font-size: 2.2rem;
-                  margin-bottom: 15px;
-                "
-                aria-hidden="true"
-              ></i>
-              <h3
-                style="
-                  color: var(--accent-color);
-                  font-size: 1.1rem;
-                  margin-bottom: 10px;
-                "
-              >
-                App inteligente
-              </h3>
-              <p style="font-size: 0.9rem; opacity: 0.9">
-                Agenda, cotiza y controla tus servicios desde tu celular en
-                tiempo real.
-              </p>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <section id="paquetes" class="section bg-light">
-      <div class="container">
-        <h2 class="section-title text-center">Paquetes Mensuales</h2>
-        <p class="section-description text-center">
-          Elige tu experiencia y vive con tranquilidad. Servicios esenciales
-          pensados para tu estilo de vida.
-        </p>
+    <!-- ================================================================
+         SOLUCIONES PARA CADA NECESIDAD
+    ================================================================ -->
+    <section id="soluciones" class="section section-soluciones" aria-labelledby="soluciones-title">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label section-label--light">Lo que hacemos</span>
+                <h2 class="section-title section-title--light" id="soluciones-title">Soluciones para cada necesidad</h2>
+                <p class="section-subtitle section-subtitle--light">Elige tu ecosistema y descubre todo lo que podemos resolver por ti.</p>
+            </div>
 
-        <div class="pricing-grid">
-          <!-- Paquete Esencial -->
-          <div
-            class="pricing-card"
-            style="border-top: 6px solid var(--accent-color)"
-          >
-            <div class="card-header">
-              <h3 style="color: var(--accent-color)">ESENCIAL</h3>
-              <h5
-                style="
-                  margin-top: 5px;
-                  font-weight: 500;
-                  font-size: 1.1rem;
-                  color: #555;
-                "
-              >
-                Hogar ordenado
-              </h5>
-              <p class="price" style="color: var(--text-dark)">$75.00</p>
-              <span
-                class="badge"
-                style="
-                  background-color: var(--accent-color);
-                  color: var(--primary-color);
-                "
-                >Básico</span
-              >
-            </div>
-            <div class="card-body">
-              <p class="ideal-for">
-                <strong>Ideal para:</strong> Residentes con una rutina activa
-                que valoran comodidad y ahorro de tiempo.
-              </p>
-              <hr
-                style="margin: 15px 0; border: 0; border-top: 1px solid #eee"
-              />
-              <p
-                style="
-                  font-weight: 600;
-                  text-align: center;
-                  margin-bottom: 15px;
-                  color: var(--primary-color);
-                "
-              >
-                Lo que obtienes:
-              </p>
-              <ul>
-                <li>
-                  <i class="fas fa-home" style="color: var(--accent-color)" aria-hidden="true"></i>
-                  Limpieza residencial general (2 veces por mes)
-                </li>
-                <li>
-                  <i
-                    class="fas fa-boxes"
-                    style="color: var(--accent-color)"
-                    aria-hidden="true"
-                  ></i>
-                  Organización de espacios clave
-                </li>
-                <li>
-                  <i
-                    class="fas fa-calendar-check"
-                    style="color: var(--accent-color)"
-                    aria-hidden="true"
-                  ></i>
-                  Programación preferencial en adicionales
-                </li>
-              </ul>
-              <div class="card-actions">
-                <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-                <a
-                  href="https://integra360-preview.preview.emergentagent.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-app-plan"
-                  aria-label="Elegir Paquete Esencial en la App de INTEGRA 360°"
-                  ><i class="fas fa-rocket" style="margin-right: 6px" aria-hidden="true"></i>Elegir
-                  en la App</a
-                >
-                <a
-                  href="https://wa.me/50369940103?text=Hola,%20me%20interesa%20el%20Paquete%20Esencial%20de%20Integra%20360%C2%B0."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-wa-plan"
-                  aria-label="Consultar Paquete Esencial por WhatsApp"
-                  ><i class="fab fa-whatsapp" style="margin-right: 6px" aria-hidden="true"></i
-                  >Consultar por WhatsApp</a
-                >
-              </div>
-            </div>
-          </div>
+            <div class="solutions-grid">
 
-          <!-- Paquete Confort -->
-          <div
-            class="pricing-card featured"
-            style="
-              border: 2px solid var(--primary-color);
-              border-top: 6px solid var(--primary-color);
-              background-color: #f7faff;
-            "
-          >
-            <div
-              class="card-header"
-              style="
-                background-color: var(--primary-color);
-                color: var(--white);
-                border-bottom: none;
-              "
-            >
-              <h3 style="color: var(--white)">CONFORT</h3>
-              <h5
-                style="
-                  margin-top: 5px;
-                  font-weight: 500;
-                  font-size: 1.1rem;
-                  color: #b0c4de;
-                "
-              >
-                Hogar y vehículo
-              </h5>
-              <p class="price" style="color: var(--accent-color)">$115.00</p>
-              <span
-                class="badge popular"
-                style="
-                  background-color: var(--accent-color);
-                  color: var(--primary-color);
-                "
-                >Más Popular</span
-              >
-            </div>
-            <div class="card-body">
-              <p class="ideal-for">
-                <strong>Ideal para:</strong> Residentes sumamente activos que
-                valoran comodidad. <br /><em
-                  style="font-size: 0.85rem; color: var(--primary-color)"
-                  >*Insumos operativos incluidos*</em
-                >
-              </p>
-              <hr
-                style="margin: 15px 0; border: 0; border-top: 1px solid #ddd"
-              />
-              <p
-                style="
-                  font-weight: 600;
-                  text-align: center;
-                  margin-bottom: 15px;
-                  color: var(--primary-color);
-                "
-              >
-                Lo que obtienes:
-              </p>
-              <ul>
-                <li>
-                  <i class="fas fa-home" style="color: var(--accent-color)" aria-hidden="true"></i>
-                  Limpieza general (2 veces por mes)
-                </li>
-                <li>
-                  <i
-                    class="fas fa-boxes"
-                    style="color: var(--accent-color)"
-                    aria-hidden="true"
-                  ></i>
-                  Organización de espacios clave
-                </li>
-                <li>
-                  <i class="fas fa-car" style="color: var(--accent-color)" aria-hidden="true"></i>
-                  Lavado básico de vehículo (1 vez por mes)
-                </li>
-                <li>
-                  <i
-                    class="fas fa-calendar-check"
-                    style="color: var(--accent-color)"
-                    aria-hidden="true"
-                  ></i>
-                  Tarifas preferenciales en adicionales
-                </li>
-              </ul>
-              <div class="card-actions">
-                <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-                <a
-                  href="https://integra360-preview.preview.emergentagent.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-app-plan btn-app-featured"
-                  aria-label="Elegir Paquete Confort en la App de INTEGRA 360°"
-                  ><i class="fas fa-rocket" style="margin-right: 6px" aria-hidden="true"></i>Elegir
-                  en la App</a
-                >
-                <a
-                  href="https://wa.me/50369940103?text=Hola,%20me%20interesa%20el%20Paquete%20Confort%20de%20Integra%20360%C2%B0."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-wa-plan"
-                  aria-label="Consultar Paquete Confort por WhatsApp"
-                  ><i class="fab fa-whatsapp" style="margin-right: 6px" aria-hidden="true"></i
-                  >Consultar por WhatsApp</a
-                >
-              </div>
-            </div>
-          </div>
+                <!-- Card Hogares -->
+                <article class="solution-card" id="card-hogares" aria-label="Soluciones para Hogares">
+                    <div class="solution-card__image-wrapper">
+                        <img
+                            src="img/solution-hogares.jpg"
+                            alt="Hogar moderno y familiar — servicios integrales para tu hogar"
+                            class="solution-card__image"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="solution-card__overlay"></div>
+                    </div>
+                    <div class="solution-card__content">
+                        <div class="solution-card__icon">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="solution-card__title">Hogares</h3>
+                        <p class="solution-card__desc">Soluciones para tu hogar y familia, para que disfrutes tu tiempo sin preocupaciones.</p>
+                        <ul class="solution-card__services" aria-label="Servicios para hogares">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Limpieza</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Mantenimiento</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Áreas verdes</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Laundry in house</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Pet care</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Mudanzas</li>
+                            <li class="solution-card__more">+ Y mucho más</li>
+                        </ul>
+                        <a
+                            href="https://wa.me/50369940103?text=Hola,%20me%20interesan%20las%20soluciones%20para%20Hogares%20de%20INTEGRA%20360°."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-solution"
+                            aria-label="Ver soluciones para Hogares por WhatsApp"
+                        >
+                            Ver soluciones <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
 
-          <!-- Paquete Premium -->
-          <div
-            class="pricing-card"
-            style="border-top: 6px solid #14532d; background-color: #f0fdf4"
-          >
-            <div class="card-header">
-              <h3 style="color: #14532d">INTEGRAL PREMIUM</h3>
-              <h5
-                style="
-                  margin-top: 5px;
-                  font-weight: 500;
-                  font-size: 1.1rem;
-                  color: #555;
-                "
-              >
-                Vida sin complicaciones
-              </h5>
-              <p class="price" style="color: #14532d">$150.00</p>
-              <span
-                class="badge"
-                style="background-color: #14532d; color: var(--white)"
-                >Premium</span
-              >
+                <!-- Card Empresas -->
+                <article class="solution-card solution-card--featured" id="card-empresas" aria-label="Soluciones para Empresas">
+                    <div class="solution-card__image-wrapper">
+                        <img
+                            src="img/solution-empresas.jpg"
+                            alt="Lobby corporativo moderno — servicios integrales para empresas"
+                            class="solution-card__image"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="solution-card__overlay"></div>
+                    </div>
+                    <div class="solution-card__content">
+                        <div class="solution-card__icon">
+                            <i class="fas fa-building" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="solution-card__title">Empresas</h3>
+                        <p class="solution-card__desc">Servicios para que tu empresa opere de manera eficiente y sin preocupaciones.</p>
+                        <ul class="solution-card__services" aria-label="Servicios para empresas">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Limpieza corporativa</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Mantenimiento</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Áreas verdes</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Gestión de instalaciones</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Servicios especializados</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Vehículos</li>
+                            <li class="solution-card__more">+ Y mucho más</li>
+                        </ul>
+                        <a
+                            href="https://wa.me/50369940103?text=Hola,%20me%20interesan%20las%20soluciones%20para%20Empresas%20de%20INTEGRA%20360°."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-solution btn-solution--featured"
+                            aria-label="Ver soluciones para Empresas por WhatsApp"
+                        >
+                            Ver soluciones <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card Administraciones -->
+                <article class="solution-card" id="card-administraciones" aria-label="Soluciones para Administraciones">
+                    <div class="solution-card__image-wrapper">
+                        <img
+                            src="img/solution-administraciones.jpg"
+                            alt="Residencial de lujo con áreas comunes — servicios para administraciones"
+                            class="solution-card__image"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="solution-card__overlay"></div>
+                    </div>
+                    <div class="solution-card__content">
+                        <div class="solution-card__icon">
+                            <i class="fas fa-city" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="solution-card__title">Administraciones</h3>
+                        <p class="solution-card__desc">Soluciones integrales para condominios, residenciales y propiedades administradas.</p>
+                        <ul class="solution-card__services" aria-label="Servicios para administraciones">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Mantenimiento integral</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Limpieza de áreas comunes</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Áreas verdes</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Servicios especiales</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Gestión de servicios</li>
+                            <li class="solution-card__more">+ Y mucho más</li>
+                        </ul>
+                        <a
+                            href="https://wa.me/50369940103?text=Hola,%20me%20interesan%20las%20soluciones%20para%20Administraciones%20de%20INTEGRA%20360°."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-solution"
+                            aria-label="Ver soluciones para Administraciones por WhatsApp"
+                        >
+                            Ver soluciones <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+
             </div>
-            <div class="card-body">
-              <p class="ideal-for">
-                <strong>Ideal para:</strong> Quienes desean delegar tareas
-                operativas y vivir tranquilos. <br /><em
-                  style="font-size: 0.85rem; color: #14532d"
-                  >*Insumos operativos incluidos*</em
-                >
-              </p>
-              <hr
-                style="margin: 15px 0; border: 0; border-top: 1px solid #dcfce7"
-              />
-              <p
-                style="
-                  font-weight: 600;
-                  text-align: center;
-                  margin-bottom: 15px;
-                  color: #14532d;
-                "
-              >
-                Lo que obtienes:
-              </p>
-              <ul>
-                <li>
-                  <i class="fas fa-sparkles" style="color: #14532d" aria-hidden="true"></i>
-                  Limpieza profunda (4 veces por mes)
-                </li>
-                <li>
-                  <i class="fas fa-boxes" style="color: #14532d" aria-hidden="true"></i>
-                  Organización de espacios clave
-                </li>
-                <li>
-                  <i class="fas fa-car" style="color: #14532d" aria-hidden="true"></i> Lavado de
-                  vehículo (2 veces por mes)
-                </li>
-                <li>
-                  <i class="fas fa-crown" style="color: #14532d" aria-hidden="true"></i> Prioridad
-                  de agenda exclusiva
-                </li>
-              </ul>
-              <div class="card-actions">
-                <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-                <a
-                  href="https://integra360-preview.preview.emergentagent.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-app-plan btn-app-premium"
-                  aria-label="Elegir Paquete Integral Premium en la App de INTEGRA 360°"
-                  ><i class="fas fa-rocket" style="margin-right: 6px" aria-hidden="true"></i>Elegir
-                  en la App</a
-                >
-                <a
-                  href="https://wa.me/50369940103?text=Hola,%20me%20interesa%20el%20Paquete%20Integral%20Premium%20de%20Integra%20360%C2%B0."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-wa-plan btn-wa-premium"
-                  aria-label="Consultar Paquete Premium por WhatsApp"
-                  ><i class="fab fa-whatsapp" style="margin-right: 6px" aria-hidden="true"></i
-                  >Consultar por WhatsApp</a
-                >
-              </div>
-            </div>
-          </div>
         </div>
-
-        <p
-          class="text-center"
-          style="
-            margin-top: 40px;
-            font-size: 1rem;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 18px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          "
-        >
-          <i
-            class="fas fa-calculator"
-            style="
-              color: var(--accent-color);
-              margin-right: 8px;
-              font-size: 1.2rem;
-            "
-            aria-hidden="true"
-          ></i>
-          Todos los paquetes pueden personalizarse y permiten acceder, bajo
-          cotización, a
-          <span style="color: var(--accent-color); font-weight: 600"
-            >servicios adicionales</span
-          >.
-        </p>
-      </div>
     </section>
 
-    <section id="servicios" class="section">
-      <div class="container">
-        <h2 class="section-title text-center">Servicios Adicionales</h2>
-        <p
-          class="text-center section-subtitle"
-          style="margin-bottom: 40px; font-size: 1.1rem"
-        >
-          Personaliza tu experiencia.
-          <span style="color: var(--accent-color); font-weight: 600"
-            >Tú eliges. Nosotros lo hacemos posible.</span
-          >
-        </p>
-
-        <div class="services-grid">
-          <div class="service-card">
-            <div
-              style="
-                background-color: var(--primary-color);
-                width: 75px;
-                height: 75px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 20px auto;
-                border: 2px solid var(--accent-color);
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-seedling"
-                style="color: var(--accent-color); font-size: 2.2rem"
-                aria-hidden="true"
-              ></i>
+    <!-- ================================================================
+         ¿TIENES UNA NECESIDAD DIFERENTE?
+    ================================================================ -->
+    <section id="necesidad-personalizada" class="section section-custom-need" aria-labelledby="custom-need-title">
+        <div class="container">
+            <div class="custom-need-card">
+                <div class="custom-need-icon" aria-hidden="true">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="custom-need-content">
+                    <h2 class="custom-need-title" id="custom-need-title">¿Tienes una necesidad diferente?</h2>
+                    <p class="custom-need-desc">
+                        Cuéntanos qué necesitas y encontraremos la solución ideal para ti.
+                        No te limites a un catálogo. Si existe una necesidad, INTEGRA 360° encuentra la manera de resolverla.
+                    </p>
+                </div>
+                <a
+                    href="https://wa.me/50369940103?text=Hola,%20tengo%20una%20necesidad%20especial%20y%20me%20gustaría%20que%20INTEGRA%20360°%20me%20ayude%20a%20resolverla."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary btn-custom-need"
+                    id="custom-need-cta"
+                    aria-label="Solicitar solución personalizada por WhatsApp"
+                >
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    Solicitar solución
+                </a>
             </div>
-            <h3
-              style="
-                color: var(--primary-color);
-                margin-bottom: 12px;
-                font-size: 1.15rem;
-              "
-            >
-              Cuidado de jardín
-            </h3>
-            <p style="font-size: 0.95rem; color: #555">
-              Áreas verdes siempre impecables y saludables.
-            </p>
-            <div class="card-actions" style="margin-top: 15px">
-              <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-              <a
-                href="https://integra360-preview.preview.emergentagent.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-app-plan"
-                aria-label="Cotizar servicio de Cuidado de Jardín en la App"
-                ><i class="fas fa-rocket" style="margin-right: 6px" aria-hidden="true"></i>Cotizar
-                en la App</a
-              >
-              <a
-                href="https://wa.me/50369940103?text=Hola,%20me%20interesa%20el%20servicio%20adicional%20de%20Cuidado%20de%20jard%C3%ADn."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-wa-plan"
-                aria-label="Cotizar servicio de Cuidado de Jardín por WhatsApp"
-                ><i class="fab fa-whatsapp" style="margin-right: 6px" aria-hidden="true"></i
-                >Cotizar por WhatsApp</a
-              >
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div
-              style="
-                background-color: var(--primary-color);
-                width: 75px;
-                height: 75px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 20px auto;
-                border: 2px solid var(--accent-color);
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-tshirt"
-                style="color: var(--accent-color); font-size: 2.2rem"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <h3
-              style="
-                color: var(--primary-color);
-                margin-bottom: 12px;
-                font-size: 1.15rem;
-              "
-            >
-              Laundry in house
-            </h3>
-            <p style="font-size: 0.95rem; color: #555">
-              Lavado y cuidado de prendas sin salir de casa.
-            </p>
-            <div class="card-actions" style="margin-top: 15px">
-              <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-              <a
-                href="https://integra360-preview.preview.emergentagent.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-app-plan"
-                aria-label="Cotizar servicio Laundry in house en la App"
-                ><i class="fas fa-rocket" style="margin-right: 6px" aria-hidden="true"></i>Cotizar
-                en la App</a
-              >
-              <a
-                href="https://wa.me/50369940103?text=Hola,%20me%20interesa%20el%20servicio%20adicional%20de%20Laundry%20in%20house."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-wa-plan"
-                aria-label="Cotizar servicio Laundry in house por WhatsApp"
-                ><i class="fab fa-whatsapp" style="margin-right: 6px" aria-hidden="true"></i
-                >Cotizar por WhatsApp</a
-              >
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div
-              style="
-                background-color: var(--primary-color);
-                width: 75px;
-                height: 75px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 20px auto;
-                border: 2px solid var(--accent-color);
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-tools"
-                style="color: var(--accent-color); font-size: 2.2rem"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <h3
-              style="
-                color: var(--primary-color);
-                margin-bottom: 12px;
-                font-size: 1.15rem;
-              "
-            >
-              Mantenimiento
-            </h3>
-            <p style="font-size: 0.95rem; color: #555">
-              Pequeñas reparaciones y servicio preventivo.
-            </p>
-            <div class="card-actions" style="margin-top: 15px">
-              <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-              <a
-                href="https://integra360-preview.preview.emergentagent.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-app-plan"
-                aria-label="Cotizar servicio de Mantenimiento en la App"
-                ><i class="fas fa-rocket" style="margin-right: 6px" aria-hidden="true"></i>Cotizar
-                en la App</a
-              >
-              <a
-                href="https://wa.me/50369940103?text=Hola,%20me%20interesa%20el%20servicio%20adicional%20de%20Mantenimiento."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-wa-plan"
-                aria-label="Cotizar servicio de Mantenimiento por WhatsApp"
-                ><i class="fab fa-whatsapp" style="margin-right: 6px" aria-hidden="true"></i
-                >Cotizar por WhatsApp</a
-              >
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div
-              style="
-                background-color: var(--primary-color);
-                width: 75px;
-                height: 75px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 20px auto;
-                border: 2px solid var(--accent-color);
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-paw"
-                style="color: var(--accent-color); font-size: 2.2rem"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <h3
-              style="
-                color: var(--primary-color);
-                margin-bottom: 12px;
-                font-size: 1.15rem;
-              "
-            >
-              Pet care
-            </h3>
-            <p style="font-size: 0.95rem; color: #555">
-              Atención y cuidado para tus mascotas.
-            </p>
-            <div class="card-actions" style="margin-top: 15px">
-              <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-              <a
-                href="https://integra360-preview.preview.emergentagent.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-app-plan"
-                aria-label="Cotizar servicio Pet care en la App"
-                ><i class="fas fa-rocket" style="margin-right: 6px" aria-hidden="true"></i>Cotizar
-                en la App</a
-              >
-              <a
-                href="https://wa.me/50369940103?text=Hola,%20me%20interesa%20el%20servicio%20adicional%20de%20Pet%20care."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-wa-plan"
-                aria-label="Cotizar servicio Pet care por WhatsApp"
-                ><i class="fab fa-whatsapp" style="margin-right: 6px" aria-hidden="true"></i
-                >Cotizar por WhatsApp</a
-              >
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div
-              style="
-                background-color: var(--primary-color);
-                width: 75px;
-                height: 75px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 20px auto;
-                border: 2px solid var(--accent-color);
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-glass-cheers"
-                style="color: var(--accent-color); font-size: 2.2rem"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <h3
-              style="
-                color: var(--primary-color);
-                margin-bottom: 12px;
-                font-size: 1.15rem;
-              "
-            >
-              Event Planner
-            </h3>
-            <p style="font-size: 0.95rem; color: #555">
-              Organización y coordinación de eventos.
-            </p>
-            <div class="card-actions" style="margin-top: 15px">
-              <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-              <a
-                href="https://integra360-preview.preview.emergentagent.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-app-plan"
-                aria-label="Cotizar servicio Event Planner en la App"
-                ><i class="fas fa-rocket" style="margin-right: 6px" aria-hidden="true"></i>Cotizar
-                en la App</a
-              >
-              <a
-                href="https://wa.me/50369940103?text=Hola,%20me%20interesa%20el%20servicio%20adicional%20de%20Event%20Planner."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-wa-plan"
-                aria-label="Cotizar servicio Event Planner por WhatsApp"
-                ><i class="fab fa-whatsapp" style="margin-right: 6px" aria-hidden="true"></i
-                >Cotizar por WhatsApp</a
-              >
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div
-              style="
-                background-color: var(--primary-color);
-                width: 75px;
-                height: 75px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 20px auto;
-                border: 2px solid var(--accent-color);
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-              "
-            >
-              <i
-                class="fas fa-car-side"
-                style="color: var(--accent-color); font-size: 2.2rem"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <h3
-              style="
-                color: var(--primary-color);
-                margin-bottom: 12px;
-                font-size: 1.15rem;
-              "
-            >
-              Carwash Móvil
-            </h3>
-            <p style="font-size: 0.95rem; color: #555">
-              Lavado profesional de tu vehículo sin moverte de casa.
-            </p>
-            <div class="card-actions" style="margin-top: 15px">
-              <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-              <a
-                href="https://integra360-preview.preview.emergentagent.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-app-plan"
-                aria-label="Cotizar servicio Carwash Móvil en la App"
-                ><i class="fas fa-rocket" style="margin-right: 6px" aria-hidden="true"></i>Cotizar
-                en la App</a
-              >
-              <a
-                href="https://wa.me/50369940103?text=Hola,%20me%20interesa%20el%20servicio%20adicional%20de%20Carwash%20Mobil."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-wa-plan"
-                aria-label="Cotizar servicio Carwash Móvil por WhatsApp"
-                ><i class="fab fa-whatsapp" style="margin-right: 6px" aria-hidden="true"></i
-                >Cotizar por WhatsApp</a
-              >
-            </div>
-          </div>
         </div>
-
-        <div style="text-align: center; margin-top: 50px">
-          <div
-            style="
-              display: inline-block;
-              background-color: var(--primary-color);
-              border-radius: 50px;
-              padding: 15px 35px;
-              color: var(--white);
-              box-shadow: 0 8px 20px rgba(5, 16, 36, 0.4);
-              border: 1px solid var(--accent-color);
-            "
-          >
-            <i
-              class="fas fa-home"
-              style="
-                color: var(--accent-color);
-                font-size: 1.4rem;
-                vertical-align: middle;
-                margin-right: 12px;
-              "
-              aria-hidden="true"
-            ></i>
-            <span style="vertical-align: middle; font-size: 1.1rem"
-              ><strong>Tu hogar, a tu medida.</strong></span
-            >
-          </div>
-        </div>
-      </div>
     </section>
 
-    <footer id="contacto">
-      <div class="container footer-content">
-        <div class="footer-info">
-          <img
-            src="img/logo.webp"
-            alt="Logo INTEGRA 360° - Gestión de Servicios Residenciales"
-            class="footer-logo"
-            width="80"
-            height="80"
-            loading="lazy"
-            decoding="async"
-          />
-          <h3 class="gold-metallic-text">INTEGRA 360&deg;</h3>
-          <p>Recupera tu tiempo, vive sin complicaciones.</p>
+    <!-- ================================================================
+         ¿CÓMO FUNCIONA?
+    ================================================================ -->
+    <section id="como-funciona" class="section section-process" aria-labelledby="process-title">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label section-label--light">Simple y transparente</span>
+                <h2 class="section-title section-title--light" id="process-title">¿Cómo funciona?</h2>
+                <p class="section-subtitle section-subtitle--light">De tu necesidad a la solución en cinco pasos claros.</p>
+            </div>
+
+            <div class="process-steps" aria-label="Pasos del proceso de INTEGRA 360°">
+
+                <div class="process-step reveal-on-scroll" id="step-1">
+                    <div class="step-number" aria-hidden="true">01</div>
+                    <div class="step-connector step-connector--right" aria-hidden="true"></div>
+                    <div class="step-icon" aria-hidden="true">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="step-title">Cuéntanos qué necesitas</h3>
+                    <p class="step-desc">Nos contactas y nos explicas tu necesidad. Sin formularios complicados.</p>
+                </div>
+
+                <div class="process-step reveal-on-scroll" id="step-2">
+                    <div class="step-number" aria-hidden="true">02</div>
+                    <div class="step-connector step-connector--left" aria-hidden="true"></div>
+                    <div class="step-connector step-connector--right" aria-hidden="true"></div>
+                    <div class="step-icon" aria-hidden="true">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="step-title">Diseñamos la solución</h3>
+                    <p class="step-desc">Analizamos y definimos la mejor solución para tu situación específica.</p>
+                </div>
+
+                <div class="process-step reveal-on-scroll" id="step-3">
+                    <div class="step-number" aria-hidden="true">03</div>
+                    <div class="step-connector step-connector--left" aria-hidden="true"></div>
+                    <div class="step-connector step-connector--right" aria-hidden="true"></div>
+                    <div class="step-icon" aria-hidden="true">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="step-title">Coordinamos todo</h3>
+                    <p class="step-desc">Gestionamos todos los recursos necesarios. Tú no tienes que coordinar nada.</p>
+                </div>
+
+                <div class="process-step reveal-on-scroll" id="step-4">
+                    <div class="step-number" aria-hidden="true">04</div>
+                    <div class="step-connector step-connector--left" aria-hidden="true"></div>
+                    <div class="step-connector step-connector--right" aria-hidden="true"></div>
+                    <div class="step-icon" aria-hidden="true">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="step-title">Damos seguimiento</h3>
+                    <p class="step-desc">Supervisamos el servicio y te mantenemos informado en todo momento.</p>
+                </div>
+
+                <div class="process-step reveal-on-scroll" id="step-5">
+                    <div class="step-number" aria-hidden="true">05</div>
+                    <div class="step-connector step-connector--left" aria-hidden="true"></div>
+                    <div class="step-icon" aria-hidden="true">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3 class="step-title">Tú recibes el resultado</h3>
+                    <p class="step-desc">Una solución completa, sin complicaciones. Eso es INTEGRA 360°.</p>
+                </div>
+
+            </div>
         </div>
-        <div class="footer-contact">
-          <h4>Contáctanos</h4>
-          <p>¿Interesado en algún paquete?</p>
-          <a
-            href="https://wa.me/50369940103"
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Contactar a INTEGRA 360° por WhatsApp"
-            >Solicitar Información</a
-          >
+    </section>
+
+    <!-- ================================================================
+         ¿POR QUÉ ELEGIR INTEGRA 360°?
+    ================================================================ -->
+    <section id="por-que" class="section section-benefits" aria-labelledby="benefits-title">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Por qué confiar en nosotros</span>
+                <h2 class="section-title" id="benefits-title">¿Por qué elegir INTEGRA 360°?</h2>
+                <p class="section-subtitle">Porque tu tranquilidad merece más que promesas.</p>
+            </div>
+
+            <div class="benefits-grid">
+
+                <div class="benefit-card reveal-on-scroll" id="benefit-1">
+                    <div class="benefit-card__icon" aria-hidden="true">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 class="benefit-card__title">Proveedores verificados</h3>
+                    <p class="benefit-card__desc">Trabajamos con especialistas confiables, evaluados y comprometidos con la calidad.</p>
+                </div>
+
+                <div class="benefit-card reveal-on-scroll" id="benefit-2">
+                    <div class="benefit-card__icon" aria-hidden="true">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="benefit-card__title">Calidad garantizada</h3>
+                    <p class="benefit-card__desc">Supervisamos cada servicio para asegurar tu satisfacción en cada detalle.</p>
+                </div>
+
+                <div class="benefit-card reveal-on-scroll" id="benefit-3">
+                    <div class="benefit-card__icon" aria-hidden="true">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="benefit-card__title">Atención personalizada</h3>
+                    <p class="benefit-card__desc">Un equipo dedicado, listo para acompañarte antes, durante y después del servicio.</p>
+                </div>
+
+                <div class="benefit-card reveal-on-scroll" id="benefit-4">
+                    <div class="benefit-card__icon" aria-hidden="true">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <h3 class="benefit-card__title">Ahorro de tiempo y esfuerzo</h3>
+                    <p class="benefit-card__desc">Nos encargamos de todo para que tú puedas enfocarte en lo que realmente importa.</p>
+                </div>
+
+                <div class="benefit-card reveal-on-scroll" id="benefit-5">
+                    <div class="benefit-card__icon" aria-hidden="true">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="benefit-card__title">Confianza total</h3>
+                    <p class="benefit-card__desc">Tu tranquilidad es nuestra prioridad. Operamos con total transparencia y responsabilidad.</p>
+                </div>
+
+            </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 INTEGRA 360°. Todos los derechos reservados.</p>
-        <div
-          style="
-            margin-top: 5px;
-            font-size: 0.85rem;
-            color: #b0c4de;
-            line-height: 1.3;
-          "
-        >
-          <p>
-            Desarrollado por
-            <span style="color: var(--accent-color); font-weight: 600"
-              >JK GROUP</span
-            >
-          </p>
-          <div
-            style="
-              margin-top: 3px;
-              display: flex;
-              justify-content: center;
-              gap: 20px;
-              flex-wrap: wrap;
-            "
-          >
-            <span
-              ><i
-                class="fas fa-phone-alt"
-                style="color: var(--accent-color); margin-right: 5px"
-                aria-hidden="true"
-              ></i
-              ><a href="https://wa.me/50369940103" style="color: inherit" target="_blank" rel="noopener noreferrer" aria-label="Llamar o escribir por WhatsApp al +503 6994-0103"
-                >+503 6994-0103</a
-              ></span
-            >
-            <span
-              ><i
-                class="fas fa-envelope"
-                style="color: var(--accent-color); margin-right: 5px"
-                aria-hidden="true"
-              ></i
-              ><a href="mailto:hello@integra360corp.com" style="color: inherit" aria-label="Enviar correo electrónico a hello@integra360corp.com"
-                >hello@integra360corp.com</a
-              ></span
-            >
-          </div>
+    </section>
+
+    <!-- ================================================================
+         CTA FINAL
+    ================================================================ -->
+    <section id="contacto" class="section section-cta-final" aria-labelledby="cta-final-title">
+        <div class="cta-final-overlay"></div>
+        <div class="container cta-final-content">
+            <div class="cta-final-eyebrow" aria-hidden="true">
+                <i class="fas fa-circle-dot"></i>
+                <span>Estamos aquí para ayudarte</span>
+            </div>
+            <h2 class="cta-final-title" id="cta-final-title">
+                Listo para resolver<br>
+                <span class="gold-metallic-text">tu necesidad.</span>
+            </h2>
+            <p class="cta-final-desc">
+                Una necesidad. Una solución. Todo integrado.<br>
+                Contáctanos hoy y te respondemos de inmediato.
+            </p>
+            <div class="cta-final-buttons">
+                <a
+                    href="https://wa.me/50369940103?text=Hola,%20me%20gustaría%20solicitar%20una%20solución%20con%20INTEGRA%20360°."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary btn-cta-wa"
+                    id="cta-whatsapp"
+                    aria-label="Solicitar solución por WhatsApp"
+                >
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    Solicitar solución
+                </a>
+                <a
+                    href="tel:+50369940103"
+                    class="btn btn-cta-phone"
+                    id="cta-phone"
+                    aria-label="Llamar a INTEGRA 360°"
+                >
+                    <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                    +503 6994-0103
+                </a>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- ================================================================
+         FOOTER
+    ================================================================ -->
+    <footer id="footer" aria-label="Pie de página de INTEGRA 360°">
+        <div class="container footer-main">
+            <div class="footer-grid">
+
+                <!-- Columna: Marca -->
+                <div class="footer-col footer-col--brand">
+                    <a href="#inicio" aria-label="Ir al inicio">
+                        <img src="img/logo.webp" alt="Logo INTEGRA 360°" class="footer-logo" width="72" height="72" loading="lazy" decoding="async" />
+                    </a>
+                    <h3 class="gold-metallic-text footer-brand-name">INTEGRA 360°</h3>
+                    <p class="footer-tagline">Todo lo que necesitas.<br>Una sola gestión.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/profile.php?id=61587207488110" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook de INTEGRA 360°">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.instagram.com/integra360_sv/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram de INTEGRA 360°">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@integra360sv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok de INTEGRA 360°">
+                            <i class="fab fa-tiktok" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna: Soluciones -->
+                <div class="footer-col">
+                    <h4 class="footer-col__title">Soluciones</h4>
+                    <ul class="footer-col__list">
+                        <li><a href="#card-hogares" class="footer-link">Hogares</a></li>
+                        <li><a href="#card-empresas" class="footer-link">Empresas</a></li>
+                        <li><a href="#card-administraciones" class="footer-link">Administraciones</a></li>
+                        <li>
+                            <a
+                                href="https://wa.me/50369940103?text=Hola,%20tengo%20una%20necesidad%20especial."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="footer-link"
+                            >Servicios adicionales</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna: Empresa -->
+                <div class="footer-col">
+                    <h4 class="footer-col__title">Empresa</h4>
+                    <ul class="footer-col__list">
+                        <li><a href="#nosotros" class="footer-link">Nosotros</a></li>
+                        <li><a href="#como-funciona" class="footer-link">Cómo funciona</a></li>
+                        <li><a href="#por-que" class="footer-link">¿Por qué elegirnos?</a></li>
+                        <li><a href="#contacto" class="footer-link">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: Legal -->
+                <div class="footer-col">
+                    <h4 class="footer-col__title">Legal</h4>
+                    <ul class="footer-col__list">
+                        <li><a href="#footer" class="footer-link">Términos y condiciones</a></li>
+                        <li><a href="#footer" class="footer-link">Política de privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: Contáctanos -->
+                <div class="footer-col">
+                    <h4 class="footer-col__title">Contáctanos</h4>
+                    <ul class="footer-col__list footer-col__list--contact">
+                        <li>
+                            <a href="mailto:hello@integra360corp.com" class="footer-link footer-link--contact" aria-label="Enviar email a INTEGRA 360°">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                hello@integra360corp.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+50369940103" class="footer-link footer-link--contact" aria-label="Llamar a INTEGRA 360°">
+                                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                                +503 6994-0103
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/50369940103" target="_blank" rel="noopener noreferrer" class="footer-link footer-link--contact" aria-label="WhatsApp de INTEGRA 360°">
+                                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                                WhatsApp
+                            </a>
+                        </li>
+                        <li>
+                            <span class="footer-link footer-link--contact footer-link--nolink">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                El Salvador
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p class="footer-copy">&copy; 2026 INTEGRA 360°. Todos los derechos reservados.</p>
+                <p class="footer-dev">
+                    Desarrollado por <span class="footer-dev-brand">JK GROUP</span>
+                </p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Floating Social Media Icons -->
-    <div class="social-floating">
-      <!-- APP INTEGRA 360° - Cambiar URL cuando se migre a dominio propio -->
-      <div class="social-app-wrapper">
-        <span class="social-app-tooltip">Mi Panel</span>
+    <!-- ================================================================
+         FLOATING SOCIAL ICONS
+    ================================================================ -->
+    <div class="social-floating" aria-label="Redes sociales y contacto rápido">
         <a
-          href="https://integra360-preview.preview.emergentagent.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-icon social-app"
-          aria-label="Acceder a Mi Panel Integra 360°"
+            href="https://www.facebook.com/profile.php?id=61587207488110"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon facebook"
+            aria-label="Página oficial de Facebook de INTEGRA 360°"
         >
-          <img
-            src="img/logo.webp"
-            alt="Integra 360° App"
-            class="social-app-img"
-            width="45"
-            height="45"
-            loading="lazy"
-            decoding="async"
-          />
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
         </a>
-      </div>
-      <a
-        href="https://www.facebook.com/profile.php?id=61587207488110"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-icon facebook"
-        aria-label="Página oficial de Facebook de INTEGRA 360°"
-      >
-        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-      </a>
-      <a
-        href="https://www.instagram.com/integra360_sv/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-icon instagram"
-        aria-label="Perfil de Instagram de INTEGRA 360°"
-      >
-        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-      </a>
-      <a
-        href="https://www.tiktok.com/@integra360sv"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-icon tiktok"
-        aria-label="Perfil de TikTok de INTEGRA 360°"
-      >
-        <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
-      </a>
-      <a
-        href="https://wa.me/50369940103"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-icon whatsapp"
-        aria-label="Contactar por WhatsApp"
-      >
-        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-      </a>
-      <a
-        href="mailto:hello@integra360corp.com"
-        class="social-icon email"
-        aria-label="Enviar correo electrónico"
-      >
-        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-      </a>
+        <a
+            href="https://www.instagram.com/integra360_sv/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon instagram"
+            aria-label="Perfil de Instagram de INTEGRA 360°"
+        >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a
+            href="https://www.tiktok.com/@integra360sv"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon tiktok"
+            aria-label="Perfil de TikTok de INTEGRA 360°"
+        >
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+        </a>
+        <a
+            href="https://wa.me/50369940103"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon whatsapp"
+            aria-label="Contactar por WhatsApp"
+        >
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a
+            href="mailto:hello@integra360corp.com"
+            class="social-icon email"
+            aria-label="Enviar correo electrónico"
+        >
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        </a>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

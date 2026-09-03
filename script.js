@@ -1,56 +1,139 @@
+// INTEGRA 360° — script.js v5.0
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Funcionalidad del Menú Hamburguesa con accesibilidad ARIA
+    // ================================================================
+    // 1. NAVBAR: Scroll effect (transparent → solid)
+    // ================================================================
+    const navbar = document.getElementById('navbar');
+
+    const handleNavbarScroll = () => {
+        if (window.scrollY > 60) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    };
+
+    window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+    handleNavbarScroll(); // Run on load in case page is already scrolled
+
+
+    // ================================================================
+    // 2. HAMBURGER MENU — con accesibilidad ARIA
+    // ================================================================
     const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
+    const navMenu    = document.querySelector('.nav-menu');
+
+    const closeMenu = () => {
+        navMenu.classList.remove('active');
+        mobileMenu.classList.remove('is-active');
+        mobileMenu.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    };
 
     if (mobileMenu && navMenu) {
         mobileMenu.addEventListener('click', () => {
-            const isExpanded = navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
             mobileMenu.classList.toggle('is-active');
-            mobileMenu.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+            mobileMenu.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
-        // Soporte para teclado (Enter o Espacio)
+        // Keyboard support
         mobileMenu.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 mobileMenu.click();
             }
         });
-    }
 
-    // Cerrar menú al hacer clic en un enlace
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu && mobileMenu) {
-                navMenu.classList.remove('active');
-                mobileMenu.classList.remove('is-active');
-                mobileMenu.setAttribute('aria-expanded', 'false');
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMenu();
             }
         });
-    });
 
-    // Smooth Scrolling para anclas
+        // Close on nav link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    }
+
+
+    // ================================================================
+    // 3. SMOOTH SCROLLING for anchor links
+    // ================================================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || !targetId) return;
 
             const targetElement = document.querySelector(targetId);
             if (!targetElement) return;
 
-            const headerOffset = 0;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - headerOffset;
+            e.preventDefault();
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
+            const navbarHeight = navbar ? navbar.offsetHeight : 0;
+            const elementTop   = targetElement.getBoundingClientRect().top + window.scrollY;
+            const offset       = elementTop - navbarHeight - 20;
+
+            window.scrollTo({ top: offset, behavior: 'smooth' });
         });
     });
+
+
+    // ================================================================
+    // 4. SCROLL REVEAL — Intersection Observer
+    // ================================================================
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+    if ('IntersectionObserver' in window && revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Staggered delay for grid items
+                        const siblings = entry.target.closest('.process-steps, .benefits-grid');
+                        let delay = 0;
+
+                        if (siblings) {
+                            const items = siblings.querySelectorAll('.reveal-on-scroll');
+                            items.forEach((item, i) => {
+                                if (item === entry.target) delay = i * 100;
+                            });
+                        }
+
+                        setTimeout(() => {
+                            entry.target.classList.add('is-visible');
+                        }, delay);
+
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+        );
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+        // Fallback: show all immediately
+        revealElements.forEach(el => el.classList.add('is-visible'));
+    }
+
+
+    // ================================================================
+    // 5. HERO: Parallax subtle effect on scroll
+    // ================================================================
+    const hero = document.querySelector('.hero');
+
+    if (hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (scrollY < window.innerHeight) {
+                hero.style.backgroundPositionY = `calc(center + ${scrollY * 0.3}px)`;
+            }
+        }, { passive: true });
+    }
+
 });

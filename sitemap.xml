@@ -3,24 +3,52 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!--
-    INTEGRA 360° — sitemap.xml
-    Gestión Integral de Servicios Residenciales en El Salvador
+    INTEGRA 360° — sitemap.xml v2.0
+    Gestión Integral de Servicios — Hogares, Empresas y Administraciones
+    Última actualización: 2026-09-02
   -->
+
   <url>
     <loc>https://www.integra360corp.com/</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+
+    <!-- Logo principal -->
     <image:image>
       <image:loc>https://www.integra360corp.com/img/logo.webp</image:loc>
-      <image:title>INTEGRA 360° Logotipo Oficial</image:title>
-      <image:caption>Logotipo oficial de INTEGRA 360° Servicios Residenciales</image:caption>
+      <image:title>INTEGRA 360° — Logotipo Oficial</image:title>
+      <image:caption>Logotipo oficial de INTEGRA 360°, empresa de gestión integral de servicios en El Salvador</image:caption>
     </image:image>
+
+    <!-- Hero: composición de los 3 ecosistemas -->
     <image:image>
-      <image:loc>https://www.integra360corp.com/img/modern-hero.webp</image:loc>
-      <image:title>INTEGRA 360° Servicios Residenciales El Salvador</image:title>
-      <image:caption>Servicios residenciales integrales en El Salvador</image:caption>
+      <image:loc>https://www.integra360corp.com/img/hero-composite.jpg</image:loc>
+      <image:title>INTEGRA 360° — Gestión Integral para Hogares, Empresas y Administraciones</image:title>
+      <image:caption>Gestión integral de servicios para hogares, empresas y administraciones en El Salvador</image:caption>
     </image:image>
+
+    <!-- Soluciones para Hogares -->
+    <image:image>
+      <image:loc>https://www.integra360corp.com/img/solution-hogares.jpg</image:loc>
+      <image:title>Soluciones para Hogares — INTEGRA 360°</image:title>
+      <image:caption>Servicios integrales para tu hogar: limpieza, mantenimiento, áreas verdes y más</image:caption>
+    </image:image>
+
+    <!-- Soluciones para Empresas -->
+    <image:image>
+      <image:loc>https://www.integra360corp.com/img/solution-empresas.jpg</image:loc>
+      <image:title>Soluciones para Empresas — INTEGRA 360°</image:title>
+      <image:caption>Servicios corporativos: limpieza empresarial, mantenimiento, gestión de instalaciones</image:caption>
+    </image:image>
+
+    <!-- Soluciones para Administraciones -->
+    <image:image>
+      <image:loc>https://www.integra360corp.com/img/solution-administraciones.jpg</image:loc>
+      <image:title>Soluciones para Administraciones — INTEGRA 360°</image:title>
+      <image:caption>Gestión integral para condominios, residenciales y propiedades administradas</image:caption>
+    </image:image>
+
   </url>
 
 </urlset>
