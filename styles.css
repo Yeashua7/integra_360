@@ -1620,3 +1620,913 @@ footer {
     .section-title { font-size: 1.55rem; }
     .social-icon { width: 32px; height: 32px; font-size: 13px; }
 }
+
+/* ================================================================
+   15. INTEGRA 360° EN ACCIÓN — Sección de trabajos reales
+   Nueva sección · Misma paleta · Mismo sistema tipográfico
+================================================================ */
+
+/* --- Contenedor de sección --- */
+.section-en-accion {
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decoración sutil de fondo (igual que otras secciones claras) */
+.section-en-accion::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* --- Intro text bajo el subtitle --- */
+.accion-intro {
+    font-size: 1rem;
+    color: var(--text-mid);
+    max-width: 640px;
+    margin: 16px auto 24px;
+    line-height: 1.7;
+}
+
+/* --- Rating global badge --- */
+.accion-rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary);
+    border: 1px solid rgba(212,175,55,0.35);
+    border-radius: 50px;
+    padding: 8px 20px;
+    margin-top: 4px;
+}
+
+.accion-stars {
+    color: var(--accent);
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.accion-rating-text {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.3px;
+}
+
+/* ================================================================
+   MOSAICO DE TRABAJOS
+================================================================ */
+.work-mosaic {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr 0.72fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    margin-bottom: 64px;
+    align-items: start;
+}
+
+.work-mosaic__secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Reviews card ocupa la columna 3 completa */
+.work-card--reviews {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+/* ================================================================
+   WORK CARD — Base
+================================================================ */
+.work-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--primary-mid);
+    border: 1px solid rgba(212,175,55,0.18);
+    cursor: pointer;
+    transition: var(--transition-slow);
+    position: relative;
+    outline: none;
+}
+
+.work-card:hover,
+.work-card:focus-visible {
+    border-color: rgba(212,175,55,0.5);
+    box-shadow: 0 20px 56px rgba(5,16,36,0.22), 0 0 28px var(--gold-glow);
+    transform: translateY(-5px);
+}
+
+.work-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* --- Image wrapper (reviews variant) --- */
+.work-card__image-wrapper--reviews {
+    height: 440px !important;
+}
+
+.work-card__overlay--reviews {
+    background: linear-gradient(
+        to bottom,
+        rgba(5,16,36,0.0) 30%,
+        rgba(5,16,36,0.6) 100%
+    );
+}
+
+/* --- Native video element as thumbnail --- */
+.video-thumb-native {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    pointer-events: none;
+}
+
+/* --- Verified badge --- */
+.work-badge--verified {
+    background: rgba(22, 163, 74, 0.18);
+    border: 1px solid rgba(22, 163, 74, 0.6);
+    color: #4ade80;
+}
+
+/* Card footer reviews variant */
+.work-card__footer--reviews {
+    background: var(--primary);
+    border-top: 1px solid rgba(212,175,55,0.25);
+}
+
+/* --- Image wrapper --- */
+.work-card__image-wrapper {
+    position: relative;
+    overflow: hidden;
+    background: var(--primary);
+}
+
+.work-card--main .work-card__image-wrapper {
+    height: 440px;
+}
+
+.work-card--secondary .work-card__image-wrapper {
+    height: 195px;
+}
+
+.work-card--video .work-card__image-wrapper {
+    height: 195px;
+}
+
+.work-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-card:hover .work-card__image {
+    transform: scale(1.07);
+}
+
+/* --- Overlay gradiente --- */
+.work-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(5,16,36,0.05) 0%,
+        rgba(5,16,36,0.55) 100%
+    );
+    transition: opacity 0.3s ease;
+}
+
+.work-card__overlay--video {
+    background: linear-gradient(
+        to bottom,
+        rgba(5,16,36,0.25) 0%,
+        rgba(5,16,36,0.72) 100%
+    );
+}
+
+/* --- Badges (etiquetas de trabajo) --- */
+.work-card__badges {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    z-index: 2;
+}
+
+.work-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    line-height: 1;
+}
+
+.work-badge i {
+    font-size: 0.6rem;
+}
+
+.work-badge--real {
+    background: rgba(5,16,36,0.75);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.work-badge--real i {
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.work-badge--category {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.9);
+}
+
+.work-badge--video-label {
+    background: rgba(212,175,55,0.18);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+/* --- Zoom hint (icono de ampliar) --- */
+.work-card__zoom-hint {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(5,16,36,0.65);
+    border: 1px solid rgba(212,175,55,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 0.8rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+}
+
+.work-card:hover .work-card__zoom-hint {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- Card footer (título + tipo) --- */
+.work-card__footer {
+    padding: 16px 18px;
+    background: var(--primary-mid);
+    border-top: 1px solid rgba(212,175,55,0.12);
+}
+
+.work-card__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.work-card__type {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+}
+
+/* ================================================================
+   VIDEO CARD — Thumbnail placeholder y botón Play
+================================================================ */
+.video-thumb-bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-thumb-icon {
+    font-size: 3rem;
+    color: rgba(212,175,55,0.25);
+}
+
+.video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid rgba(255,255,255,0.3);
+    color: var(--primary);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    z-index: 3;
+    padding-left: 3px; /* Optical centering of play icon */
+    box-shadow: 0 6px 24px rgba(212,175,55,0.45);
+}
+
+.video-play-btn:hover,
+.work-card--video:hover .video-play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 10px 36px rgba(212,175,55,0.6);
+    background: var(--accent-hover);
+}
+
+/* ================================================================
+   SEPARADOR DORADO
+================================================================ */
+.accion-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0 0 64px;
+}
+
+.accion-divider__line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212,175,55,0.35), transparent);
+}
+
+.accion-divider__icon {
+    color: var(--accent);
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* ================================================================
+   TESTIMONIOS
+================================================================ */
+.testimonials-header {
+    margin-bottom: 40px;
+}
+
+.testimonials-title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.testimonials-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    font-weight: 500;
+}
+
+/* Grid de testimonios — 3 columnas en desktop */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+/* --- Testimonial Card --- */
+.testimonial-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    border: 1px solid #e8eef4;
+    box-shadow: 0 4px 24px rgba(5,16,36,0.05);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212,175,55,0.35);
+    box-shadow: 0 12px 40px rgba(5,16,36,0.1);
+}
+
+.testimonial-card--featured {
+    border-color: rgba(212,175,55,0.4);
+    box-shadow: 0 8px 36px rgba(5,16,36,0.1);
+    background: linear-gradient(160deg, var(--white) 0%, rgba(212,175,55,0.04) 100%);
+}
+
+/* Header: avatar + nombre + estrellas */
+.testimonial-card__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.testimonial-card__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.testimonial-card__avatar i {
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.testimonial-card__meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.testimonial-card__name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.testimonial-card__date {
+    font-size: 0.75rem;
+    color: var(--text-mid);
+    font-weight: 400;
+}
+
+.testimonial-card__stars {
+    color: #F59E0B;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+/* Texto del testimonio */
+.testimonial-card__text {
+    font-size: 0.93rem;
+    color: var(--text-dark);
+    line-height: 1.65;
+    font-style: italic;
+    border-left: 3px solid rgba(212,175,55,0.4);
+    padding-left: 14px;
+    margin: 0;
+    flex: 1;
+}
+
+/* Badge de verificado */
+.testimonial-card__verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #16A34A;
+    letter-spacing: 0.3px;
+}
+
+.testimonial-card__verified i {
+    font-size: 0.75rem;
+}
+
+/* ================================================================
+   FOOTER DE TESTIMONIOS: rating resumen + CTA
+================================================================ */
+.testimonials-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.rating-summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--primary);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: var(--radius-lg);
+    padding: 18px 32px;
+}
+
+.rating-summary__score {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.rating-summary__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.rating-summary__stars {
+    color: #F59E0B;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.rating-summary__count {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+}
+
+.btn-accion-cta {
+    padding: 16px 36px;
+    font-size: 0.97rem;
+    font-weight: 700;
+    box-shadow: 0 8px 28px var(--gold-glow);
+}
+
+/* ================================================================
+   LIGHTBOX
+================================================================ */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(5,16,36,0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    cursor: pointer;
+}
+
+.lightbox__content {
+    position: relative;
+    z-index: 1;
+    max-width: 92vw;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.lightbox__image {
+    max-width: 92vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(212,175,55,0.25);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    object-fit: contain;
+    display: block;
+    animation: lightboxIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes lightboxIn {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.lightbox__caption {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    max-width: 560px;
+    line-height: 1.5;
+    padding: 0 16px;
+}
+
+.lightbox__close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+}
+
+.lightbox__close:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.lightbox__nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+}
+
+.lightbox__nav:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--primary);
+}
+
+.lightbox__nav--prev { left: 16px; }
+.lightbox__nav--next { right: 16px; }
+
+/* ================================================================
+   VIDEO MODAL
+================================================================ */
+.video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.video-modal[hidden] { display: none; }
+
+.video-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(5,16,36,0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    cursor: pointer;
+}
+
+.video-modal__container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 860px;
+    background: var(--primary-mid);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(212,175,55,0.25);
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    animation: modalIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.video-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 5;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(5,16,36,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+}
+
+.video-modal__close:hover {
+    background: var(--accent);
+    color: var(--primary);
+    border-color: var(--accent);
+}
+
+.video-modal__header {
+    padding: 20px 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.video-modal__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+}
+
+.video-modal__player {
+    padding: 16px 0 0;
+    position: relative;
+}
+
+.video-modal__video {
+    width: 100%;
+    display: block;
+    max-height: 60vh;
+    background: var(--primary);
+    outline: none;
+}
+
+/* Placeholder cuando no hay video */
+.video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 48px 24px 36px;
+    text-align: center;
+    background: var(--primary);
+    min-height: 240px;
+}
+
+.video-placeholder i {
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.5;
+    margin-bottom: 8px;
+}
+
+.video-placeholder p {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.video-placeholder span {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+}
+
+/* ================================================================
+   RESPONSIVE — EN ACCIÓN
+================================================================ */
+@media (max-width: 1100px) {
+    .work-card--main .work-card__image-wrapper { height: 380px; }
+    .work-card__image-wrapper--reviews { height: 380px !important; }
+}
+
+@media (max-width: 992px) {
+    /* Mosaico: 2 columnas — principal ocupa todo, secondary + reviews en segunda fila */
+    .work-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .work-card--main {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .work-mosaic__secondary {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .work-card--reviews {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .work-card--main .work-card__image-wrapper { height: 340px; }
+    .work-card--secondary .work-card__image-wrapper,
+    .work-card--video .work-card__image-wrapper {
+        height: 220px;
+    }
+    .work-card__image-wrapper--reviews { height: 460px !important; }
+
+    /* Testimonios: 2 columnas */
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial-card--featured {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .work-card--main .work-card__image-wrapper { height: 280px; }
+
+    .work-mosaic {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .work-card--main  { grid-column: auto; grid-row: auto; }
+    .work-card--reviews { grid-column: auto; grid-row: auto; }
+
+    .work-mosaic__secondary {
+        grid-template-columns: 1fr;
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .work-card--secondary .work-card__image-wrapper,
+    .work-card--video .work-card__image-wrapper {
+        height: 200px;
+    }
+    .work-card__image-wrapper--reviews { height: 240px !important; }
+
+    /* Testimonios: 1 columna */
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    .testimonials-title { font-size: 1.6rem; }
+
+    .rating-summary {
+        padding: 14px 24px;
+        gap: 12px;
+    }
+    .rating-summary__score { font-size: 2.4rem; }
+
+    /* Lightbox nav: ocultar en muy pequeño */
+    .lightbox__nav { display: none; }
+
+    .video-modal { padding: 12px; }
+}
+
+@media (max-width: 480px) {
+    .work-card--main .work-card__image-wrapper { height: 240px; }
+
+    .accion-rating-badge {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+        padding: 10px 18px;
+    }
+
+    .btn-accion-cta {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+
+    .rating-summary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}

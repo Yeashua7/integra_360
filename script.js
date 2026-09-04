@@ -1,4 +1,4 @@
-// INTEGRA 360° — script.js v5.0
+// INTEGRA 360° — script.js v5.1
 document.addEventListener('DOMContentLoaded', () => {
 
     // ================================================================
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if ('IntersectionObserver' in window && revealElements.length > 0) {
         const revealObserver = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry, index) => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         // Staggered delay for grid items
                         const siblings = entry.target.closest('.process-steps, .benefits-grid');
@@ -135,5 +135,147 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { passive: true });
     }
+
+
+    // ================================================================
+    // 6. LIGHTBOX — Galería de imágenes de trabajos reales
+    // ================================================================
+    const lightbox         = document.getElementById('lightbox');
+    const lightboxImg      = document.getElementById('lightbox-img');
+    const lightboxCaption  = document.getElementById('lightbox-caption');
+    const lightboxClose    = document.getElementById('lightbox-close');
+    const lightboxPrev     = document.getElementById('lightbox-prev');
+    const lightboxNext     = document.getElementById('lightbox-next');
+    const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+
+    // Collect all gallery items in document order
+    const galleryItems = Array.from(document.querySelectorAll('[data-lightbox="gallery"]'));
+    let currentGalleryIndex = 0;
+
+    const openLightbox = (index) => {
+        if (!lightbox || galleryItems.length === 0) return;
+        currentGalleryIndex = index;
+        const item = galleryItems[index];
+
+        // Use data-src first, fallback to the first img inside the card
+        const src = item.getAttribute('data-src') || item.querySelector('img')?.src || '';
+        const alt = item.getAttribute('data-alt') || item.querySelector('img')?.alt || '';
+
+        lightboxImg.src     = src;
+        lightboxImg.alt     = alt;
+        lightboxCaption.textContent = alt;
+
+        lightbox.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+        lightboxClose.focus();
+
+        // Toggle nav visibility
+        const showNav = galleryItems.length > 1;
+        if (lightboxPrev) lightboxPrev.style.display = showNav ? '' : 'none';
+        if (lightboxNext) lightboxNext.style.display = showNav ? '' : 'none';
+    };
+
+    const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+        // Return focus to the triggering card
+        const trigger = galleryItems[currentGalleryIndex];
+        if (trigger) trigger.focus();
+    };
+
+    const showLightboxPrev = () => {
+        currentGalleryIndex = (currentGalleryIndex - 1 + galleryItems.length) % galleryItems.length;
+        openLightbox(currentGalleryIndex);
+    };
+
+    const showLightboxNext = () => {
+        currentGalleryIndex = (currentGalleryIndex + 1) % galleryItems.length;
+        openLightbox(currentGalleryIndex);
+    };
+
+    // Bind click/keyboard on each gallery card
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => openLightbox(index));
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox(index);
+            }
+        });
+    });
+
+    if (lightboxClose)    lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+    if (lightboxPrev)     lightboxPrev.addEventListener('click', showLightboxPrev);
+    if (lightboxNext)     lightboxNext.addEventListener('click', showLightboxNext);
+
+    // Global keyboard handler for lightbox
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || lightbox.hasAttribute('hidden')) return;
+        if (e.key === 'Escape')     closeLightbox();
+        if (e.key === 'ArrowLeft')  showLightboxPrev();
+        if (e.key === 'ArrowRight') showLightboxNext();
+    });
+
+
+    // ================================================================
+    // 7. VIDEO MODAL — Tarjeta de video de trabajos reales
+    // ================================================================
+    const videoModal         = document.getElementById('video-modal');
+    const videoModalClose    = document.getElementById('video-modal-close');
+    const videoModalBackdrop = document.getElementById('video-modal-backdrop');
+    const modalVideo         = document.getElementById('modal-video');
+    const videoPlaceholder   = document.getElementById('video-placeholder');
+    const videoCardTrigger   = document.getElementById('work-card-video');
+
+    const openVideoModal = () => {
+        if (!videoModal) return;
+        videoModal.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+        if (videoModalClose) videoModalClose.focus();
+
+        // Decide: show real video player or placeholder
+        if (modalVideo) {
+            const hasSrc = modalVideo.querySelectorAll('source').length > 0;
+            if (hasSrc) {
+                modalVideo.style.display = 'block';
+                if (videoPlaceholder) videoPlaceholder.style.display = 'none';
+                // User presses play manually — no autoplay with sound
+            } else {
+                // No video file yet — show the call-to-action placeholder
+                modalVideo.style.display = 'none';
+                if (videoPlaceholder) videoPlaceholder.style.display = 'flex';
+            }
+        }
+    };
+
+    const closeVideoModal = () => {
+        if (!videoModal) return;
+        videoModal.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+        // Pause video when closing to stop audio/playback
+        if (modalVideo && !modalVideo.paused) modalVideo.pause();
+        if (videoCardTrigger) videoCardTrigger.focus();
+    };
+
+    if (videoCardTrigger) {
+        videoCardTrigger.addEventListener('click', openVideoModal);
+        videoCardTrigger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openVideoModal();
+            }
+        });
+    }
+
+    if (videoModalClose)    videoModalClose.addEventListener('click', closeVideoModal);
+    if (videoModalBackdrop) videoModalBackdrop.addEventListener('click', closeVideoModal);
+
+    // Global keyboard handler for video modal
+    document.addEventListener('keydown', (e) => {
+        if (!videoModal || videoModal.hasAttribute('hidden')) return;
+        if (e.key === 'Escape') closeVideoModal();
+    });
 
 });
